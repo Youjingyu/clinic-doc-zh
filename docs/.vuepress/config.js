@@ -1,8 +1,8 @@
 module.exports = {
   // title: 'Clinic.js',
   description: 'Node Clinic 中文文档',
+  base: '/clinic-doc-ch/',
   themeConfig: {
-    base: '/clinic-doc-ch/',
     logo: '/logo.png',
     logoLink: 'https://clinicjs.org/documentation',
     sidebar: [
