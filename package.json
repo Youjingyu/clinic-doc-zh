@@ -1,0 +1,26 @@
+{
+  "name": "clinic-doc-ch",
+  "version": "1.0.0",
+  "description": "node clinic chinese doc",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Youjingyu/clinic-doc-ch.git"
+  },
+  "keywords": [
+    "node clinic",
+    "chinese doc"
+  ],
+  "author": "whale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Youjingyu/clinic-doc-ch/issues"
+  },
+  "homepage": "https://github.com/Youjingyu/clinic-doc-ch#readme",
+  "devDependencies": {
+    "vuepress": "^0.14.8"
+  }
+}

@@ -16,7 +16,7 @@
 
 如果你发现一个看起来很有趣的块，点击它会很有用，这样你就可以在不丢失它的情况下徘徊探索它周围的函数块。
 
-![video](https://clinicjs.org/assets/videos/flame-docs-A.mp4)
+<video src="https://clinicjs.org/assets/videos/flame-docs-A.mp4" playsinline loop autoplay muted width="100%"></video>
 
 ### 提示按钮
 
@@ -27,7 +27,7 @@
 - Copy path：将包含函数代码的文件的相对文件路径复制到剪切板，仅适用于被分析的应用的代码（白色）或其 `node_modules`（蓝色）中的代码。
 - Open in browser：针对 Node.js 核心代码（灰色），在新的浏览器标签页中打开 Github 页面，页面中会包含该函数对应的 Node.js 源码。查看这些可以更好地了解 Node.js 在“背后”做了什么。
 
-![video](https://clinicjs.org/assets/videos/flame-docs-B.mp4)
+<video src="https://clinicjs.org/assets/videos/flame-docs-B.mp4" playsinline loop autoplay muted width="100%"></video>
 
 ### 展开
 
@@ -37,7 +37,7 @@
 
 要返回展开前的主界面，你可以单击背景、单击屏幕底部的 “Return to main view”、双击展开的函数块或单击提示框中的 ”Contract“ 按钮。
 
-![video](https://clinicjs.org/assets/videos/flame-docs-C.mp4)
+<video src="https://clinicjs.org/assets/videos/flame-docs-C.mp4" playsinline loop autoplay muted width="100%"></video>
 
 ## 信息面板
 
@@ -57,7 +57,7 @@
 
 首次打开 Clinic 火焰图时，默认选择最左侧（最热）的块。
 
-![video](https://clinicjs.org/assets/videos/flame-docs-D.mp4)
+<video src="https://clinicjs.org/assets/videos/flame-docs-D.mp4" playsinline loop autoplay muted width="100%"></video>
 
 ### 选择控制面板
 
@@ -65,5 +65,6 @@
 
 一个开始使用 Clinic 火焰图的好方式是使用“Next hottest”按钮循环观察函数块，对于它选择的每个函数块，想想为什么这个函数会执行这么多时间。例如，它可能是一个需要优化的慢函数，或者它可能是一个你知道的快函数，但是当你在火焰图中看到它下面的东西时，你可能会发现它被调用了太多次（例如，它可能在嵌套循环中）。
 
-![video](https://clinicjs.org/assets/videos/flame-docs-E.mp4)
+<video src="https://clinicjs.org/assets/videos/flame-docs-E.mp4" playsinline loop autoplay muted width="100%"></video>
+
 
