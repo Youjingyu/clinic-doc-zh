@@ -5,6 +5,7 @@ module.exports = {
   themeConfig: {
     logo: '/logo.png',
     logoLink: 'https://clinicjs.org/documentation',
+    repo: 'Youjingyu/clinic-doc-ch',
     sidebar: [
       'getting_started',
       {
