@@ -1,6 +1,6 @@
 # 开始
 
-在开始使用 Clinic 之前，我们需要先在电脑上安装 Clinic，并运行几个测试，以保证一切正常。我们按照下面的步骤开始：
+在开始使用 Clinic 之前，我们需要先在电脑上安装 Clinic，并按照下面的步骤运行几个测试，以保证一切正常：
 
 1.注意：Node.js 版本必须大于 `8.11.1`
 
@@ -69,7 +69,7 @@ Flags
 -v | --version             Display Version
 ```
 
-4.我们上传了一些例子到 Github 供你测试。我们先使用 [Clinic Doctor](https://clinicjs.org/doctor/) 和 [autocannon](https://github.com/mcollina/autocannon) 来尝试一下第一个例子：
+4.我们上传了一些例子到 Github 供你测试。现在先使用 [Clinic Doctor](https://clinicjs.org/doctor/) 和 [autocannon](https://github.com/mcollina/autocannon) 来尝试一下第一个例子：
 
 ```bash
 git clone git@github.com:nearform/node-clinic-doctor-examples.git
