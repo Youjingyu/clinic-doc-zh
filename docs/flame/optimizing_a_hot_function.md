@@ -1,0 +1,1 @@
+# Optimizing a hot function
