@@ -49,7 +49,7 @@ module.exports = {
     ]
   },
   head: [
-    ['link', { rel: 'icon', href: '/icon.png' }],
+    ['link', { rel: 'shortcut icon', href: '/icon.png' }],
     // ['style', {},  `
     //   blockquote {
     //     display: none;
