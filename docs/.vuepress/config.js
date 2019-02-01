@@ -6,6 +6,8 @@ module.exports = {
     logo: '/logo.png',
     logoLink: 'https://clinicjs.org/documentation',
     repo: 'Youjingyu/clinic-doc-ch',
+    editLinks: true,
+    docsDir: 'docs',
     sidebar: [
       '/',
       {
@@ -51,25 +53,28 @@ module.exports = {
   },
   head: [
     ['link', { rel: 'shortcut icon', href: '/icon.png' }],
-    // ['style', {},  `
-    //   blockquote {
-    //     display: none;
-    //   }
-    // `],
-    // ['script', {}, `
-    //   document.addEventListener('click', function (e) {
-    //     var target = e.target
-    //     if (target.tagName === 'P') {
-    //       var nextSibling = target.nextElementSibling
-    //       if (nextSibling.tagName === 'BLOCKQUOTE') {
-    //         var hide = 'display:none'
-    //         var show = 'display:block'
-    //         var style = nextSibling.getAttribute('style')
-    //         nextSibling.setAttribute('style', style === show ? hide : show)
-    //       }
-    //     }
-    //   })
-    // `],
+    ['style', {},  `
+      p + blockquote, ol + blockquote,  ul + blockquote {
+        display: none;
+      }
+    `],
+    ['script', {}, `
+      document.addEventListener('click', function (e) {
+        var target = e.target
+        var nextSibling
+        if (target.tagName === 'P') {
+          nextSibling = target.nextElementSibling
+        } else if (target.tagName === 'LI') {
+          nextSibling = target.parentNode.nextElementSibling
+        }
+        if (nextSibling && nextSibling.tagName === 'BLOCKQUOTE') {
+          var hide = 'display:none'
+          var show = 'display:block'
+          var style = nextSibling.getAttribute('style')
+          nextSibling.setAttribute('style', style === show ? hide : show)
+        }
+      })
+    `],
     ["script", {},`
       var logoUrlChanger = setInterval(function () {
         // Anchor above the logo image
