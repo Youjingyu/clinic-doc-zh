@@ -9,6 +9,17 @@ module.exports = {
     sidebar: [
       '/',
       {
+        title: 'Doctor',
+        children: [
+          'doctor/setup',
+          'doctor/getting_ready',
+          'doctor/first_analysis',
+          'doctor/reading_a_profile',
+          'doctor/fixing_an_event_loop_problem',
+          'doctor/fixing_an_IO_problem',
+        ]
+      },
+      {
         title: 'Flame',
         children: [
           'flame/setup',
@@ -20,17 +31,6 @@ module.exports = {
           'flame/reducing_the_graph_size',
           'flame/advanced_analysis',
           'flame/advanced_controls'
-        ]
-      },
-      {
-        title: 'Doctor',
-        children: [
-          'doctor/setup',
-          'doctor/getting_ready',
-          'doctor/first_analysis',
-          'doctor/reading_a_profile',
-          'doctor/fixing_an_event_loop_problem',
-          'doctor/fixing_an_IO_problem',
         ]
       },
       {
