@@ -15,6 +15,7 @@ module.exports = {
           'flame/getting_ready',
           'flame/first_ analysis',
           'flame/flamegraphs',
+          'flame/controls',
           'flame/optimizing_a_hot_function',
           'flame/reducing_the_graph_size',
           'flame/advanced_analysis',
