@@ -49,7 +49,7 @@ Clinic Flame 按照函数块的宽度排序，最宽的（执行时间最长的�
 函数在栈顶的停留时间等效于：函数阻塞 Node.js 事件循环的时间。如果一个函数经常停留在栈顶，意味着它花费更多的时间执行自己的代码，而不是调用其他函数或者触发函数回调。
 > This can be rephrased as: "For how long was a function blocking the Node.js event loop". If a function is frequently observed at the top of the stack, it means it is spending more time executing its own code than calling other functions or allowing function callbacks to trigger.
 
-在 Node.js 中，同一时间只能执行一个函数（排除 Worker thread 等情况），如果花费大量时间执行某个函数，就不能执行其他代码了，包括触发 I/O 回调。这就是”阻塞事件循环“这个词的本质。
+在 Node.js 中，同一时间只能执行一个函数（排除 Worker thread 等情况），如果花费大量时间执行某个函数，就不能执行其他代码了，包括触发 I/O 回调。这就是“阻塞事件循环”这个词的本质。
 > In Node.js, only one function can execute at any one time (ignoring possibilities like Worker threads). If a function takes a long time to execute, nothing else can happen, including the triggering of I/O callbacks. This is the essence of the phrase "blocking the event loop"
 
 在函数块顶部的亮条的亮度表示函数停留在栈顶时间的百分比。换句话说，越亮（越热）表明执行自己代码的时间越多，从而阻止其他带代码执行。
@@ -57,5 +57,5 @@ Clinic Flame 按照函数块的宽度排序，最宽的（执行时间最长的�
 
 ![](https://clinicjs.org/static/38f13a6ea48ca78ae269acf140dd128d/c4232/04-C.png)
 
-当一个函数阻塞事件循环的概率高于其他函数时，我们将其称为“热”函数。寻找这些“热”函数就是寻找优化代码的好地方。Clinic Flame 默认选中”最热的“函数，并提供了切换到下一个”热“函数的控制面板。
+当一个函数阻塞事件循环的概率高于其他函数时，我们将其称为“热”函数。寻找这些“热”函数就是寻找优化代码的好地方。Clinic Flame 默认选中“最热的”函数，并提供了切换到下一个“热”函数的控制面板。
 > When a function is blocking the event loop in higher proportion to other functions we call this a "hot" function. Looking for these "hot" functions is a good place to start looking for places to optimise your code. Clinic Flame by default selects the "hottest" frame, and gives controls to cycle through the next hottest.

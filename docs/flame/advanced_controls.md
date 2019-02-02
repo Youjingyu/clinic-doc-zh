@@ -107,7 +107,7 @@ V8 可能对一些频繁运行的代码做自动优化，从而创建这些函�
 
 #### RegExp
 
-RegExp 代表正则表达式。这也被捕获为函数块。在这种情况下，正则表达式会填充函数块标签的 "function name" 部分。这可用于识别慢正则表达式（特别是[指数复杂度的正则表达式](https://perlgeek.de/blog-en.cgi/perl-tips/in-search-of-an-exponetial-regexp.html)）。
+RegExp 代表正则表达式，正则表达式也会被捕获为函数块。在这种情况下，正则表达式会填充函数块标签的 "function name" 部分。这可用于识别慢正则表达式（特别是[指数复杂度的正则表达式](https://perlgeek.de/blog-en.cgi/perl-tips/in-search-of-an-exponetial-regexp.html)）。
 > RegExp stands for Regular Expressions. These are also captured as "frames". In this case the regular expression notation fills in as the "function name" portion of the block label. This can be useful in identifying slow regular expressions (in particular exponential time regular expressions).
 
 这些函数块具有 `[CODE：RegEx]` 标签。

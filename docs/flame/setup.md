@@ -7,7 +7,7 @@ Flame 是 Node Clinic 工具的一部分。要安装 Flame，只需要安装 Nod
 npm install -g clinic
 ```
 
-安装完成后，我们可以通过运行 `clinic flame command --help` 命令在检查 Flame 是否已经安装：
+安装完成后，我们可以通过运行 `clinic flame command --help` 命令来检查 Flame 是否已经安装：
 > After installing, we can check if Flame has been installed with running the clinic flame command with the --help flag.
 
 ```bash

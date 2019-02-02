@@ -33,7 +33,7 @@ After single-clicking on a block, or hovering over it for a moment, a tooltip ap
 
 - Expand：展开一个特定的函数块
 > Expand. See below for more about expanding a particular block.
-- Contract：如果某个函数块已经被展开了，就会显示 ”Contract“，让你能够收起函数块然后回到主界面。
+- Contract：如果某个函数块已经被展开了，就会显示 "Contract"，让你能够收起函数块然后回到主界面。
 > Contract. If this is the block that you have already expanded, it will show "Contract" instead of "Expand", which will take you back to the main view.
 - Copy path：将包含函数代码的文件的相对文件路径复制到剪切板，仅适用于被分析的应用的代码（白色）或其 `node_modules`（蓝色）中的代码。
 > Copy path. Copies to the clipboard the relative file path to the file containing the code this block represents. This only appears for blocks from the application being profiled (white) or its dependencies (blue).
@@ -131,7 +131,7 @@ After single-clicking on a block, or hovering over it for a moment, a tooltip ap
 
 ### 菜单选项
 
-单击信息面板右侧的 “Options” 按钮 可打开包含更多高级选项的菜单。
+单击信息面板右侧的 "Options" 按钮 可打开包含更多高级选项的菜单。
 > Clicking "Options" on the right side of the Info Panel opens a menu with more advanced options.
 
 #### 代码区域的可见性
