@@ -44,13 +44,13 @@ After single-clicking on a block, or hovering over it for a moment, a tooltip ap
 
 ### 展开
 
-如果双击某个函数块或者点击了提示框中的 ”Expand“ 按钮，该函数块会展开填充满整个火焰图。展开的函数块下方的函数块也会填充满整个屏幕，而其上方的函数块所占的比率会增加。
+如果双击某个函数块或者点击了提示框中的 "Expand" 按钮，该函数块会展开填充满整个火焰图。展开的函数块下方的函数块也会填充满整个屏幕，而其上方的函数块所占的比率会增加。
 > When a block is double-clicked, or its tooltip "Expand" button is used, it will expand to fill the full width of the flamegraph. Blocks below will also expand and fill the full width, while blocks above the clicked block will increase in ratio to the block they sit on. Expanding a block essentially creates a new flamegraph which represents a particular partition of the main flamegraph.
 
 已展开的函数块具有阴影背景。此“阴影”下方的每个函数块都可能扩展到比整个屏幕更宽的宽度（在 CPU 上的执行时间更长）。
 > The block that has been expanded is marked with a shadow underneath. Every block below this 'shadow' is probably wider (longer on the CPU) than the block that has expanded to fill the screen.
 
-要返回展开前的主界面，你可以单击背景、单击屏幕底部的 “Return to main view”、双击展开的函数块或单击提示框中的 ”Contract“ 按钮。
+要返回展开前的主界面，你可以单击背景、单击屏幕底部的 "Return to main view"、双击展开的函数块或单击提示框中的 "Contract" 按钮。
 > To get back to the main, non-expanded view, you can either click on the background, click "Return to main view" at the bottom of the screen, double-click on the expanded frame, or click on its "Contract" tooltip button.
 
 
@@ -94,7 +94,7 @@ After single-clicking on a block, or hovering over it for a moment, a tooltip ap
 通过选择控制面板的按钮，你可以方便地从当前选定的函数块跳转到堆栈栏中按续显示的左侧或右侧的函数块。
 > These buttons allow you to easily jump from the currently selected block, to the block that is one to the left or right of it in the hottness-ranking shown by the Stack Bar.
 
-一个开始使用 Clinic 火焰图的好方式是使用 “Next hottest” 按钮循环观察函数块，对于它选择的每个函数块，想想为什么这个函数会执行这么多时间。例如，它可能是一个需要优化的慢函数，或者它可能是一个你知道的快函数，但是当你在火焰图中看到它下面的东西时，你可能会发现它被调用了太多次（例如，它可能在嵌套循环中）。
+一个开始使用 Clinic 火焰图的好方式是使用 "Next hottest" 按钮循环观察函数块，对于它选择的每个函数块，想想为什么这个函数会执行这么多时间。例如，它可能是一个需要优化的慢函数，或者它可能是一个你知道的快函数，但是当你在火焰图中看到它下面的东西时，你可能会发现它被调用了太多次（例如，它可能在嵌套循环中）。
 > A good place to start with a Clinic Flame flamegraph, is to cycle through using the "Next hottest" button, and for each block it selects, think why that function might be spending so much time active. For example, it might be a slow function needing optimising, or it might be a function you know is fast, but when you look at what is below it in the flamegraph, you might discover that it is being called too many times (for example, it might be in a nested loop).
 
 <video src="https://clinicjs.org/assets/videos/flame-docs-E.mp4" playsinline loop autoplay muted width="100%"></video>
@@ -123,7 +123,7 @@ After single-clicking on a block, or hovering over it for a moment, a tooltip ap
 
 ![](https://clinicjs.org/static/e229f0870153bec97169e482ebde3e6d/65be2/05-B.png)
 
-如果你知道的某个函数无法在任何地方找到，即使使用搜索也不行，它可能是被 V8 内联了，你可以在选项菜单中关闭 [“merge”](#高级) 后尝试再次搜索。有关合并和内联块的更多信息，请参阅高级控件中的[“合并和取消合并”](./advanced_controls.html/#合并与未合并)部分。
+如果你知道的某个函数无法在任何地方找到，即使使用搜索也不行，它可能是被 V8 内联了，你可以在选项菜单中关闭 ["merge"](#高级) 后尝试再次搜索。有关合并和内联块的更多信息，请参阅高级控件中的[“合并和取消合并”](./advanced_controls.html#合并与未合并)部分。
 > If a function you know exists can't be found anywhere, even using search, it's possible it might have been inlined by V8: try searching again after turning off "Merge" in the Options Menu. For more on merging and inlined blocks, see the section "Merging and Unmerging" in Advanced Controls
 
 如果函数运行得很快，或者在 CPU 上停留的时间很短，那可能是在采集样本时这个函数从不在 CPU 上（译者注：即每次采样都不在 CPU 上），如果用 [autocannon](https://www.npmjs.com/package/autocannon#usage) 创建一个持续时间较长和/或非常多连接的压力测试，则可能会出现这种情况。
@@ -145,14 +145,14 @@ After single-clicking on a block, or hovering over it for a moment, a tooltip ap
 > Dependencies: Code in a dependency in a node_modules directory. Visible by default.
 - Node JS：Node.js 核心代码。默认可见。
 > Node JS: Code inside Node.js core. Visible by default.
-- V8：V8 JavaScript 引擎内的函数。默认隐藏，仅建议高级用户使用。[更多信息](./advanced_controls.html/#v8)
+- V8：V8 JavaScript 引擎内的函数。默认隐藏，仅建议高级用户使用。[更多信息](./advanced_controls.html#V8)
 > V8: Functions inside the V8 JavaScript engine. Hidden by default, recommended for advanced users only. More info
 
 #### 高级
 
-- Init：允许显示初始化函数的火焰图，默认隐藏。[更多信息](./advanced_controls.html/#初始化)
+- Init：允许显示初始化函数的火焰图，默认隐藏。[更多信息](./advanced_controls.html#初始化)
 > Init: Allows initialization functions to be shown that Flame hides by default. More info
-- Merge：允许为V8优化的功能显示不同的堆栈。[更多信息](./advanced_controls.html/#合并与未合并)
+- Merge：允许为V8优化的功能显示不同的堆栈。[更多信息](./advanced_controls.html#合并与未合并)
 > Merge: Allows different stacks to be shown for functions that V8 has optimised. More info.
 
 #### 偏好

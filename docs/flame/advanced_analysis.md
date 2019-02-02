@@ -29,7 +29,7 @@
 那么，为什么在 `handleRequest` 中花了那么长时间？如果我们点击 `copy path` 按钮来查看 Fastify 的代码，会发现没有什么明显的问题，因为 Fastify 已经针对性能做了很好的优化。
 > So, why are we spending a long time inside handleRequest? If we click copy path to look at the Fastify code, there's nothing obviously wrong, and we know Fastify is quite well optimized for performance.
 
-是我们遗漏了什么东西吗？让我们打开选项菜单并勾选未选中的 “V8” 按钮，然后火焰图会显示通常隐藏在 V8 JavaScript 引擎内的操作：
+是我们遗漏了什么东西吗？让我们打开选项菜单并勾选未选中的 "V8" 按钮，然后火焰图会显示通常隐藏在 V8 JavaScript 引擎内的操作：
 > Maybe something is missing? Let's open the Options menu and tick the unticked "V8" button, showing operations inside the V8 JavaScript engine that are normally hidden:
 
 ![](https://clinicjs.org/static/86862789c949579d6b975ee4a5642c54/65be2/08-B.png)

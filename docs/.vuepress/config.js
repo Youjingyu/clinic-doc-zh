@@ -26,7 +26,7 @@ module.exports = {
         children: [
           'flame/setup',
           'flame/getting_ready',
-          'flame/first_ analysis',
+          'flame/first_analysis',
           'flame/flamegraphs',
           'flame/controls',
           'flame/optimizing_a_hot_function',

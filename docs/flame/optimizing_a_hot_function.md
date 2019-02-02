@@ -74,15 +74,12 @@ function initPayload(idSize = 20) {
   }
 }
 ```
+> 译者注：这两段话的描述和代码有出入，点击段落查看原文  
 
 数字 `max` 是最大的32位整数（2³¹ - 1），当它达到 2³¹ 时，我们用它来循环计数到 0。在我们的例子中，这样做对速度提升并不是必要的，但是 Node 的 JavaScript 引擎（V8）针对 32 位范围内的数字进行了优化（因为实际上大多数数字都是这样的）。另外，当转换为的 36 进制（2³¹ -  1）是 6 个字符时，意味着我们没必要使用最小长度偏移来限制 `idSize`。
-
-每次调用 `payload` 函数，`count `都会增加 1。我们把 `count` 转为 36 进制的字符串，接着将该字符串转为大写。然后我们用必要数量的零（有效的 36 进制）填充字符串的开头，以创建一个长度相对于`idSize` 的 `id`。
-
-> 译者注：这两段话的描述和代码有出入，原文如下  
-
 > The max number is the largest 32bit integer (2³¹ - 1) we use this to cycle count back round to 0 when it reaches 2³¹. This isn't strictly necessary for speed in our case, but Node's JavaScript engine (V8) is optimized for the numbers in 32bit range (since most numbers in practice tend to be). Additionally, when converted to base36 is (2³¹ - 1) 6 characters, which means we don't have use a minimum length offset to enforce idSize.
 
+每次调用 `payload` 函数，`count `都会增加 1。我们把 `count` 转为 36 进制的字符串，接着将该字符串转为大写。然后我们用必要数量的零（有效的 36 进制）填充字符串的开头，以创建一个长度相对于`idSize` 的 `id`。
 > Each time the payload function is called, count is increase by one. We turn count into a base36 string, and upper case it. Then we pad the beginning of the string with the necessary amount of zeros (which is valid base36) to create an id with a length corresponding to idSize.
 
 ### 测试优化后的函数
@@ -99,7 +96,7 @@ clinic flame --on-port 'autocannon localhost:$PORT' -- node 2-server-with-optimi
 
 这看起来更健康 - 因为图里有一系列黄色和橙色，说明它不再仅仅由一个函数主导。
 
-可以看到 `payload` 函数已经看不见了。因为它内联到了它的的父函数中，也就是内联到了标记为 `app.get` 的匿名 lambda 函数中。在 [高级控制页面](./advanced_controls.html/#合并与未合并) 有关于内联和合并的更多信息。
+可以看到 `payload` 函数已经看不见了。因为它内联到了它的的父函数中，也就是内联到了标记为 `app.get` 的匿名 lambda 函数中。在 [高级控制页面](./advanced_controls.html#合并与未合并) 有关于内联和合并的更多信息。
 
 通过 `autocannon`，可以证明我们的优化使我们的服务器速度提高了50倍（220 req/s vs 11640 req/s）。
 
