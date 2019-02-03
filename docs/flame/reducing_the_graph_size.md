@@ -1,4 +1,4 @@
-# 减小火焰图的大小
+# 减小火焰图大小
 
 尽管火焰图主要是通过可视化堆栈顶部的指标来突出显示瓶颈，但它们也可用于了解应用程序的复杂性。
 > While Flamegraph's highlight bottlenecks primarily through visualizing the top-of-stack metric, they can also be used to understand application complexity.

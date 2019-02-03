@@ -13,6 +13,7 @@ module.exports = {
       {
         title: 'Doctor',
         children: [
+          'doctor/preface',
           'doctor/setup',
           'doctor/getting_ready',
           'doctor/first_analysis',
@@ -24,6 +25,7 @@ module.exports = {
       {
         title: 'Flame',
         children: [
+          'flame/preface',
           'flame/setup',
           'flame/getting_ready',
           'flame/first_analysis',
@@ -38,15 +40,16 @@ module.exports = {
       {
         title: 'Bubbleprof',
         children: [
-          'bubleprof/setup',
-          'bubleprof/getting_ready',
-          'bubleprof/first_analysis',
-          'bubleprof/bubbles',
-          'bubleprof/the_sidebar',
-          'bubleprof/finding_the_first_bottleneck',
-          'bubleprof/improving_our_latency',
-          'bubleprof/parallel_queries',
-          'bubleprof/caching_the_results'
+          'bubbleprof/preface',
+          'bubbleprof/setup',
+          'bubbleprof/getting_ready',
+          'bubbleprof/first_analysis',
+          'bubbleprof/bubbles',
+          'bubbleprof/the_sidebar',
+          'bubbleprof/finding_the_first_bottleneck',
+          'bubbleprof/improving_our_latency',
+          'bubbleprof/parallel_queries',
+          'bubbleprof/caching_the_results'
         ]
       }
     ]
