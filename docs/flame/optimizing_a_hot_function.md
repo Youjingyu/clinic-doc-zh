@@ -3,12 +3,12 @@
 Clinic Flame 界面已经为我们指出了“最热”的函数。即下图中一个非常明显的函数 `payload`，位于 `1-server-with-slow-function.js` 的第 15 行。
 > The Clinic Flame UI has pointed us towards the "hottest" functions. One clearly stands out: the payload function in 1-server-with-slow-function.js, line 15.
 
-我们也可以看到 `app.get` 在 18 行 14 列调用了热函数 `payload`。
+我们也可以看到 `app.get` 在 8 行 14 列调用了热函数 `payload`。
 > We can also see that this hot payload function is called by app.get on line 8, column 14.
 
 ![](https://clinicjs.org/static/60ec54d4c38a25cb8c567ccf71a6c187/65be2/03.png)
 
-看一下从第8行开始的函数：
+看一下从第 8 行开始的函数：
 > Let's take a look at the function starting at line 8:
 
 ```javascript

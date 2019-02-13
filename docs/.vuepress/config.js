@@ -1,11 +1,11 @@
 module.exports = {
   // title: 'Clinic.js',
   description: 'Node Clinic 中文文档',
-  base: '/clinic-doc-ch/',
+  base: '/clinic-doc-zh/',
   themeConfig: {
     logo: '/logo.png',
     logoLink: 'https://clinicjs.org/documentation',
-    repo: 'Youjingyu/clinic-doc-ch',
+    repo: 'Youjingyu/clinic-doc-zh',
     editLinks: true,
     docsDir: 'docs',
     sidebar: [
