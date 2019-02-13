@@ -54,7 +54,7 @@ function initPayload(idSize = 20) {
 在 `initPayload` 的作用域内有一个参数 `idSize`，默认值是 `20`。
 > So in the initPayload scope there is a parameter, idSize with a default value of 20.
 
-`payload` 函数返回一个具有 `date` 字段和 `id` 字段的对象。`date` 由 Date.now（）创建，看起来我们无法在这里进行优化。我们主要关注 `id` 是如何生成的。
+`payload` 函数返回一个具有 `date` 字段和 `id` 字段的对象。`date` 由 `Date.now()`创建，看起来我们无法在这里进行优化。我们主要关注 `id` 是如何生成的。
 > The payload function is returning an object with a date field and an id field. The date is created with Date.now() so it doesn't look like we can optimize much there. Let's focus on how the id is created.
 
 变量 `n` 赋值为 `idSize`，但接着又乘以自身与 `idSize` 的积，结果基本上是 `n³`。然后，在每次 `while` 循环中，`n` 变量减少 1。`while` 循环体将 `timestamp` 时间戳和 `n` 相加，然后调用 `toString（36）`（ `radix` 常量为36），把数字转换为包含数字和字母的字符串（36 进制），然后把这个 36 进制字符串转为大写并添加到 `chars` 字符。最后，根据 `chars` 字符串获取长度相对于 `idSize` 的切片来生成 `id`。
@@ -90,7 +90,7 @@ function initPayload(idSize = 20) {
   }
 }
 ```
-> 译者注：这两段话的描述和代码有出入，点击段落查看原文  
+> 译者注：下面两段话的描述和代码有出入，点击段落查看原文  
 
 数字 `max` 是最大的32位整数（2³¹ - 1），当它达到 2³¹ 时，我们用它来循环计数到 0。在我们的例子中，这样做对速度提升并不是必要的，但是 Node 的 JavaScript 引擎（V8）针对 32 位范围内的数字进行了优化（因为实际上大多数数字都是这样的）。另外，当转换为的 36 进制（2³¹ -  1）是 6 个字符时，意味着我们没必要使用最小长度偏移来限制 `idSize`。
 > The max number is the largest 32bit integer (2³¹ - 1) we use this to cycle count back round to 0 when it reaches 2³¹. This isn't strictly necessary for speed in our case, but Node's JavaScript engine (V8) is optimized for the numbers in 32bit range (since most numbers in practice tend to be). Additionally, when converted to base36 is (2³¹ - 1) 6 characters, which means we don't have use a minimum length offset to enforce idSize.

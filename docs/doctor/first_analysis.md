@@ -6,17 +6,17 @@
 我们应该在浏览器中看到一些基本输出，比如 `{}`。在命令行中按 Ctrl-C 关闭 `slow-event-loop` 服务器。
 > We should see some basic output in the browser, like {}. Ctrl-C in the command line to close the slow-event-loop server.
 
-这是一个服务器，所以我们需要进行负载。对只处理一个请求的服务器进行分析不会为我们提供太多信息，也不知道它在处理许多请求时会如何执行。我们建议使用基准测试工具 `autocannon`。
+因为这是一个服务器，所以我们需要进行负载测试。对只处理一个请求的服务器进行分析不会为我们提供太多信息，也不知道它在处理许多请求时会如何执行。我们建议使用基准测试工具 `autocannon`。
 > This is a server, so we need to apply load. Profiling a server handling just one request doesn't give us much data or indication of how it performs when handling many requests. We recommend the benchmarking tool Autocannon.
 
-当我们执行 clinic 时，我们也会在示例应用目录中执行 `autocannon`，所以我们先使用以下命令全局安装它：
+当执行 clinic 时，我们也会在示例应用目录中执行 `autocannon`，所以我们先使用以下命令全局安装它：
 > We will execute autocannon in the example application directories when we call the clinic executable, so let's install it globally, with the following command:
 
 ```bash
 npm install -g autocannon
 ```
 
-要对服务器进行负载测试，我们需要使用 Doctor 运行它，并在它开始侦听端口时立即调用 `autocannon`。只要服务器准备好处理请求并且 Doctor 也准备好收集数据，就会使用大量请求轰炸服务器，。
+要对服务器进行负载测试，我们需要使用 Doctor 运行它，并在它开始侦听端口时立即调用 `autocannon`。只要服务器准备好处理请求并且 Doctor 也准备好收集数据，就会使用大量请求轰炸服务器。
 > To load-test the server, we want to run it with Doctor, and point autocannon at it as soon as it starts listening on a port. This will bombard the server with requests, as soon as it is ready to handle them and Doctor is ready to collect data.
 
 我们用这个命令完成所有操作，它会自动分配正确的端口：
@@ -33,7 +33,7 @@ clinic doctor --on-port 'autocannon localhost:$PORT' -- node slow-event-loop
 > The clinic doctor portion invokes the Doctor command tool.
 - --on-port 参数指定在服务开始监听端口后马上执行的脚本，即 `autocannon localhost:$PORT。`
 > The --on-port flag will execute the supplied script as soon as the server starts listening on a port.
-- 脚本中的 `$PORT` 变量为服务器开始侦听的第一个端口。
+- 脚本中的 `$PORT` 变量是服务器开始侦听的第一个端口。
 > The $PORT variable in that script is set to the first port that the server began listening on.
 - `--` 后面的命令用于启动我们要分析的服务，比如这里的 `node slow-event-loop`。
 > Everything after the double-dash (--) is the command which starts the server that we want to profile, in this case node slow-event-loop.
@@ -41,7 +41,7 @@ clinic doctor --on-port 'autocannon localhost:$PORT' -- node slow-event-loop
 这行命令会运行三个可执行文件：父可执行文件 `clinic flame`, `--on-port` 中的可执行文件 `autocannon`，以及可执行文件 `Node`。
 > This one command runs three executables: the clinic doctor parent executable, the autocannon executable in --on-port and the node executable.
 
-运行该命令后，`slow-event-loop` 服务器将被来自10个并发连接的请求命中10秒（autocannon 的默认值）。然后将结果编译成单个 HTML 文件，该文件会浏览器中自动打开。
+运行该命令后，`slow-event-loop` 服务器将被来自 10 个并发连接的请求命中 10 秒（autocannon 的默认值）。然后将结果编译成单个 HTML 文件，该文件会浏览器中自动打开。
 > Upon running the command, the slow-event-loop server will be hit by requests from 10 concurrent connections for 10 seconds (as per autocannon defaults). then the results be compiled into a single HTML file that should automatically open in the browser.
 
 生成的 HTML 类似于下面这样：

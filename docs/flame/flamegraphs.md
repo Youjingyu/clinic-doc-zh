@@ -23,11 +23,8 @@
 
 ## 函数间的调用关系（调用栈）
 
-下面的图中，一块代表一个函数调用，每一块都聚合了该函数导致的调用栈。当一个函数块（译者注：为了方便理解，将 block 翻译为函数块）位于另一个函数块的顶部时，说明它被它
-> 
-Each block represents the invocations of one function, aggregated by the call stack that led to it. When one block sits on top of another, it was called by the block below it, which was called by the block below it, and so on down the stack.
-下面的函数块调用，下面的函数块又被其下面的函数块调用，依此类推。
-> 
+下面的图中，一块代表一个函数调用，每一块都聚合了该函数导致的调用栈。当一个函数块（译者注：为了方便理解，将 block 翻译为函数块）位于另一个函数块的顶部时，说明它被它下面的函数块调用，下面的函数块又被其下面的函数块调用，依此类推。
+> Each block represents the invocations of one function, aggregated by the call stack that led to it. When one block sits on top of another, it was called by the block below it, which was called by the block below it, and so on down the stack.
 
 ![](https://clinicjs.org/static/c784a05011433eb4418ae85791697da8/c4232/04-A.png)
 

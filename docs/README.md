@@ -5,7 +5,7 @@
 在开始使用 Clinic 之前，我们需要先在电脑上安装 Clinic，并按照下面的步骤运行几个测试，以保证一切正常：
 > Before you get started with Clinic, first let's make sure we install it on our machines and run a couple of tests just to make sure everything is working fine. Let's follow these steps to kick off:
 
-1.注意：Node.js 版本必须大于 `8.11.1`
+1.注意：Node.js 版本必须大于等于 `8.11.1`
 > 1. Note: You must use a version of Node.js >= 8.11.1
 
 ```bash
@@ -90,5 +90,5 @@ clinic doctor --on-port 'autocannon localhost:$PORT' -- node ./slow-io
 
 ### 接下来
 
-通常，在使用Clinic时，我们首先使用 Clinic Doctor 来确定应用程序中存在哪些性能问题。然后，Doctor 会向我们提供下一步应该用什么工具和具体分析的建议。
+通常，在使用 Clinic 时，我们首先使用 Clinic Doctor 来确定应用程序中存在哪些性能问题。然后，Doctor 会向我们提供下一步应该用什么工具以及具体分析的建议。
 > Normally, when using Clinic, we begin by using Clinic Doctor to identify what performance problems exist in an application. Doctor will then give us recommendations on what tools and enquires to make next.

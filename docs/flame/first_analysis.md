@@ -44,7 +44,7 @@ clinic flame --on-port 'autocannon localhost:$PORT' -- node 1-server-with-slow-f
 > The clinic flame portion invokes the flame command tool.
 - `--on-port` 参数指定在服务开始监听端口后马上执行的脚本，即 `autocannon localhost:$PORT`。
 > The --on-port flag will execute the supplied script as soon as the server starts listening on a port.
-- 脚本中的 `$PORT` 变量为服务器开始侦听的第一个端口。
+- 脚本中的 `$PORT` 变量是服务器开始侦听的第一个端口。
 > The $PORT variable in that script is set to the first port that the server began listening on.
 - `--` 后面的命令用于启动我们要分析的服务，比如这里的 `node 1-server-with-slow-function.js`。
 > Everything after the double-dash (--) is the command which starts the server that we want to profile, in this case node 1-server-with-slow-function.js.
@@ -52,7 +52,7 @@ clinic flame --on-port 'autocannon localhost:$PORT' -- node 1-server-with-slow-f
 这行命令会运行三个可执行文件：父可执行文件 `clinic flame`, `--on-port` 中的可执行文件 `autocannon`，以及可执行文件 `Node`。
 > This one command runs three executables: the clinic flame parent executable, the autocannon executable in --on-port and the node executable.
 
-运行该命令后，将对该进程进行 10 秒的负载测试（10 秒是 autocannon 的默认测试持续时间），然后将结果输出为HTML文件，并在浏览器中自动打开的。
+运行该命令后，将对该进程进行 10 秒的负载测试（10 秒是 autocannon 的默认测试持续时间），然后将结果输出为 HTML 文件，并在浏览器中自动打开的。
 > Upon running the command, the process will be load tested for 10 seconds (as per the autocannon default duration), then the results be compiled into a single HTML file that should automatically open in the browser.
 
 生成的 HTML 会被渲染为下面的这样：

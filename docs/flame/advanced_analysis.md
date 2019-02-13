@@ -106,7 +106,7 @@ clinic flame --on-port 'autocannon localhost:$PORT' -- node 4-server-with-manual
 可以看到，我们已经实现了大约10％的改进。
 > We've achieved roughly another 10% improvement.
 
-现在，对应用程序的进一步优化变得越来越具有挑战性，因为 Node 核心代码中的函数已成为主要瓶颈。可以在这里、那里挤出几个百分点，特别是如果我们愿意改变针对 `id` 字段的约束。
+现在，对应用程序的进一步优化变得越来越具有挑战性，因为 Node 核心代码中的函数已成为主要瓶颈。我们还可以在这里、那里挤出几个百分点的性能提升，特别是如果我们愿意改变针对 `id` 字段的约束。
 > At this point further optimization of the application becomes increasingly challenging, since functions in Node core have become the primary bottleneck. A few more percent could be squeezed out here and there, especially if we were willing to change the constraints of the id field.
 
 但是，在大多数情况下，我们的工作已经完成了。

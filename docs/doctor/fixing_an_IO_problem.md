@@ -5,7 +5,7 @@
 
 # 咨询 Doctor 
 
-在 `node-clinic-doctor-examples` 中有一个用于此问题的示例服务器，名为 `slow-io`。假设我们已经按照 [开始](./getting_ready.html) 和 [首次分析](./first_analysis.html) 中的描述配置好了所有内容，然后从该服务器生成一个Clinic Doctor 分析结果：
+在 `node-clinic-doctor-examples` 中有一个用于此问题的示例服务器，名为 `slow-io`。假设我们已经按照 [准备](./getting_ready.html) 和 [首次分析](./first_analysis.html) 中的描述配置好了所有内容，然后从该服务器生成一个Clinic Doctor 分析结果：
 > There is an example server for this problem in node-clinic-doctor-examples, called slow-io. Assuming we have everything set up as described in Getting Ready and First Analysis, let's create a Clinic Doctor profile from that server:
 
 ```bash
@@ -116,7 +116,7 @@ function awaitData(callback) {
 clinic doctor --on-port 'autocannon localhost:$PORT' -- node slow-io
 ```
 
-现在的分析结果没有检测到任何问题。所有东西都是蓝色的，图表看起来很健康，CPU 出于活跃状态。Doctor 的建议面板告诉我们 "Everything looks good!"。
+现在的分析结果没有检测到任何问题。所有东西都是蓝色的，图表看起来很健康，CPU 处于活跃状态。Doctor 的建议面板告诉我们 "Everything looks good!"。
 > The profile now detects no issues. Everything is blue, the graphs look healthy, the CPU is active, and Doctor's Recommendations Panel is cheerfully telling us that "Everything looks good!".
 
 ![](https://clinicjs.org/static/3f07f6fec2bad9ab6c4cef3b164cbd62/ace55/06-D.png)

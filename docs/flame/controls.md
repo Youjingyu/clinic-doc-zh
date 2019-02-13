@@ -81,7 +81,7 @@ After single-clicking on a block, or hovering over it for a moment, a tooltip ap
 堆栈栏显示了火焰图中每个函数块顶部亮条的热度，并按热度排序，即按照阻塞事件循环的时间排序。
 > This bar shows you the heat of those exposed stack tops, of every block in the flamegraph, in order of heat i.e. in order of how long that block's function was blocking the event loop.
 
-你可以从左到右沿着这个条移动光标，看看这些“热”函数在火焰图上的位置，并使用与上面相同的交互：悬停查看信息，单击选择并显示工具提示，双击展开。
+你可以从左到右沿着堆栈栏移动光标，看看这些“热”函数在火焰图上的位置，并使用与上面相同的交互：悬停查看信息，单击选择并显示工具提示，双击展开。
 >You can run the cursor along this bar from left to right to see where these "hot" functions are on the main flamegraph, with the same interaction as above: hover to see info, click to select and show tooltip, double click to expand.
 
 首次打开 Clinic 火焰图时，默认选择最左侧（最热）的块。

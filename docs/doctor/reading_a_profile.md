@@ -3,7 +3,7 @@
 Clinic Doctor 分析结果主要包含三部分：
 > The Clinic Doctor profile has three main sections:
 
-- 警告栏：如果有的问题的话，指出应用的主要问题。也包含视图控件
+- 警告栏：如果有问题的话，指出应用的主要问题。同时也包含视图控件
 > Alert Bar: Points us towards the main problem, if there is one. Also contains View Controls
 - 图表：绘制 Doctor 得到的数据
 > Graphs: Plot the data from which Doctor is drawing its conclusions
@@ -45,7 +45,7 @@ Doctor 通常不会识别多个问题，因此这里通常只会出现一个问�
 
 ## 图表
 
-这些图绘制了 Doctor 分析中使用的各种变量随时间的变化情况，即从分析结果中的开始时间（x 轴的左端）到结束时间（x 轴的右端）段内的变化。
+这些图绘制了 Doctor 分析中使用的各种变量随时间的变化情况，即从分析结果中的开始时间（X 轴的左端）到结束时间（X 轴的右端）段内的变化。
 > These plot various variables used in Doctor's analysis over time, from the start time of the profile (left end of the X-axis) to the finish time (right end of the X-axis).
 
 所有图表的 X 轴都使用相同的刻度。将鼠标悬停在一个图表上，我们会看到所有其他图表都会显示同一时间点上的值。
@@ -63,13 +63,13 @@ CPU 占用图显示了被分析的 Node.js 进程在任何一个时间点所占�
 如果计算机具有多个核心，CPU 使用率可能会超过 100％。CPU 占用图中的 100％ 表示单个核心容量的 100％。
 > CPU Usage can exceed 100% if the machine has multiple cores. 100% on this graph means 100% of the capacity of a single core.
 
-CPU 占用图中的峰值表示 CPU 活动频繁。如果峰值过多并且与事件循环阻塞相关（见下文），则可能会出现问题，但快速（回落）的峰值可能表示服务器能够快速处理高负载。CPU 活动过少可能表示 Node.js 进程在等待 I/O 操作完成，比如如慢速数据库查询或文件写入。
+CPU 占用图中的峰值说明 CPU 活动频繁。如果峰值过多并且与事件循环阻塞相关（见下文），则可能会出现问题，但快速（回落）的峰值可能表示服务器能够快速处理高负载。CPU 活动过少可能表示 Node.js 进程在等待 I/O 操作完成，比如慢速数据库查询或文件写入。
 > Spikes in this graph indicate high CPU activity. This can be a problem if it is excessive and correlates with event loop blockage (see below), but rapid spikes can be a sign that the server is healthily processing high load quickly. Too little CPU activity can be a sign that the Node.js process is stuck waiting for an I/O operation to complete, like a slow database query or file write.
 
 在上面的分析结果中，处理器差不多一直出于繁忙状态，看起来很健康。
 > In this profile, the processor is usually fairly busy, which looks healthy.
 
-在本练习的第 6 部分 [修复I/O问题](./fixing_an_IO_problem.html) 中，我们将看到一个不健康的CPU使用率图示例。
+在本练习的第 6 部分 [修复I/O问题](./fixing_an_IO_problem.html) 中，我们将看到一个不健康的CPU占用图示例。
 > In part 6 of this walkthrough, Fixing an I/O problem, we will see an example of an unhealthy CPU Usage graph.
 
 ### 内存占用（MB）
@@ -125,7 +125,7 @@ CPU 占用图中的峰值表示 CPU 活动频繁。如果峰值过多并且与�
 - 通过查看此提示框与前一个提示框之间的水平线，说明此延迟占用了分析结果中的一大部分时间。
 > That this delay took up a noticable chunk of the duration of the profile, by looking at the horizontal line between this tooltip and the previous one.
 
-移动光标，可以看到四个事件循环延迟占了大部分运行时间。我们还可以看到这导致其他数据非常正常 - 大约在 1/4 秒之后，每次读取内存、CPU 等数据之间会有明显的跳跃，因为 Node.js 忙于执行一些缓慢的同步代码，以至于无法再次读取。
+移动光标，可以看到四个事件循环延迟占了大部分运行时间。我们还可以看到这导致其他数据看起来非常正常 - 大约在 1/4 秒之后，每次读取内存、CPU 等数据之间会有明显的跳跃，因为 Node.js 忙于执行一些缓慢的同步代码，以至于无法再次读取。
 > Moving the cursor along, we can see that four event loop delays account for most of the run time. We can also see that this is causing the other data to be very course - after the first quarter of a second or so, there are noticable jumps between each reading for memory, CPU, etc, because Node.js was too busy executing some slow synchronous code to even take another reading.
 
 这显然不健康 - Doctor 已将其标记为红色，并在 “警告栏” 中指向该图表。

@@ -1,6 +1,6 @@
 # 前言
 
-诸如 CPU 使用率低，垃圾回收阻塞，频繁的事件循环延迟或混乱数量的活动句柄等症状可能表明应用存在许多潜在问题。Doctor 通过根据这些症状生成建议来帮助缩小问题的范围。诸如 I/O 问题，未优化的垃圾回收和事件循环阻塞等示例非常常见。Doctor 会帮助你解决所有这些问题。
+诸如 CPU 使用率低，垃圾回收阻塞，频繁的事件循环延迟或混乱数量的活动句柄等症状可能表明应用存在许多潜在问题。Doctor 根据这些症状生成建议来帮助缩小问题的范围。诸如 I/O 问题，未优化的垃圾回收和事件循环阻塞等示例非常常见。Doctor 会帮助你解决所有这些问题。
 > Symptoms such as low CPU usage, blocking garbage collection, frequent event loop delay or a chaotic number of active handles may indicate a number of potential problems. Doctor helps narrow down the possibilities by generating a recommendation based on those symptoms. Examples such as I/O issues, non-optimized garbage collection and blocked event loop are quite common. Doctor will help you with all of these.
 
 1. [安装](./setup.html)

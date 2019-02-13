@@ -9,5 +9,5 @@ cd node-clinic-doctor-examples
 npm install
 ```
 
-[README](https://github.com/nearform/node-clinic-doctor-examples) 包含一些常规信息，可在安装完成后查阅。
+[README](https://github.com/nearform/node-clinic-doctor-examples) 包含了一些常规信息，可在安装完成后查阅。
 > The README contains some general information, which can be read while the install completes.
