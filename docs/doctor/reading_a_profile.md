@@ -17,10 +17,11 @@ Clinic Doctor 分析结果主要包含三部分：
 点击此按钮打开它，我们会看到应用的主要问题的一行摘要（如果有的话）。将鼠标悬停在此摘要上，它将突出显示 Doctor 认为与分析该问题最相关的特定图表的标题。
 > Click on this to open it out, and we see a one-line summary of the main problem, if there is one. Hover over this summary and it will underline the title of the specific graph that Doctor thinks is most relevant to understanding the problem.
 
-Doctor 通常不会识别多个问题，因此这里通常只会出现一个问题，或者说没有发现任何问题。这是因为一个性能问题可能会破坏诊断另一个问题所需的数据。例如，如果 Doctor 确定存在事件循环问题，则可能无法获取足够的数据来判断是否存在 I/O 问题。
+通常来说，Doctor 不会对多个问题进行识别，因此这里一般只会显示一个问题，亦或是没有任何问题。这是因为一个性能上问题可能会对另一个问题的判断依据产生影响。例如，如果 Doctor 确定存在事件循环问题，则可能无法获取足够的数据来判断是否存在 I/O 问题。
 > Doctor does not generally identify more than one issue, so there will generally be either one problem here, or a note that no problems were found. This is because one performance problem can disrupt the data needed to diagnose another problem. For example, if Doctor is sure there is an event loop problem, it might not be able to take enough readings to judge if there is an I/O problem.
 
-第一次使用的用户主要使用警告栏查看是否存在问题，然后再直接查看建议面板中的说明以更好地理解它。更有经验的用户会看出常见问题，然后研究适当的图表，以寻找特定场景下造成问题的原因。
+第一次使用的用户主要使用警告栏查看是否存在问题，然后再直接查看建议面板中的说明以更好地理解它。更有经验的用户会看出常见问题，然后研究适当的图表，以寻找特定场景下造成问题的原因。    
+
 > A first-time user will mainly use the Alert Bar to see if there is a detected problem or not, before going straight to the description in the Recommendations Panel to understand it better. A more experienced user will recognise common detected problems and then study the appropriate graphs for clues about how this particular example of the problem is manefesting itself.
 
 在上面的例子中，Doctor 告诉我们它检测到的问题是 “潜在的事件循环问题”，可以在 Event Loop Delay 图中看到：
