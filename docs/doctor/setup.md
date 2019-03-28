@@ -1,13 +1,13 @@
 # 安装
 
-Doctor 是 Node Clinic 工具的一部分。要安装 Flame，只需要安装 Node Clinic 就行了：
+Doctor 是 Node Clinic 工具的一部分。要安装 Doctor，只需要安装 Node Clinic 即可：
 > Doctor is part of the Node Clinic suit of tools. To install Doctor, simply install Node Clinic like so:
 
 ```bash
 npm install -g clinic
 ```
 
-安装完成后，我们可以通过运行 `clinic doctor command --help` 命令来检查 doctor 是否已经安装：
+安装完成后，我们可以通过运行 `clinic doctor command --help` 命令来检查 doctor 是否安装成功：
 > After installing, we can check if Doctor has been installed by running the clinic doctor command with the --help flag.
 
 ```bash

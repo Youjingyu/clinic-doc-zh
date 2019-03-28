@@ -1,6 +1,6 @@
 # 侧边栏
 
-气泡会显示时间消耗的概览。要了解具体花费了多少时间，可以查看侧边栏。
+气泡会概括性显示的花费了多少时间。要了解具体花费了多少时间，可以查看侧边栏。
 > So the bubbles show an overview on where time is spent. To get an idea on how much time is spent in general you can inspect the sidebar.
 
 试着返回主视图。你可以使用键盘上的 `backspace` 键退后一步，或使用屏幕中的控件。在屏幕的右侧，你应该看到类似于下面的侧边栏：
