@@ -23,7 +23,7 @@ clinic bubbleprof --on-port 'autocannon -c 5 -a 500 localhost:$PORT' -- node 1-s
 在运行它之前，我们先解释一下这段命令的意思。最后的 `--` 是开始运行服务器的命令。`--on-port` 标志是一旦服务器开始监听端口就执行的脚本。该脚本中的 `$PORT` 变量是服务器开始监听的端口。当 `--on-port` 指定的脚本运行结束时，Bubbleprof 将会分析从服务器收集的数据，并在 html 页面中打开分析结果。
 > Before running it, let's explain what's happening in there. The part after -- is simply the command to start running your server. The --on-port flag is a script that is executed as soon as your server starts listening on a port. The $PORT variable in that script is set to the port your server started listening on. When the --on-port scripts ends, the Bubbleprof analysis will run on the data collected from the server and open the results in a html page.
 
-你可能还注意到 `-c 5 -a 500` 这个参数。这两个参数使 autocannon 发送固定数量的请求（通过 5 个连接总共发出 500 个请求）。默认情况下，autocannon 会尝试压测 10 秒钟，然后立即停止。虽然这对于测试负载非常有用，但这使得很难观察到单个组件的性能改进，因为大多数异步操作在 95％ 的分析时间内都是活跃的。
+你可能还注意到 `-c 5 -a 500` 这个参数。这两个参数使 autocannon 发送固定数量的请求（通过 5 个连接总共发出 500 个请求）。默认情况下，autocannon 会尝试压测 10 秒钟，然后立即停止。虽然这对于测试负载非常有用，但也使我们很难观察到单个组件的性能改进，因为大多数异步操作在 95％ 的分析时间内都是活跃的。
 > You may have also noticed -c 5 -a 500 flags. This tells autocannon to send a fixed amount of requests (5 connections making a total of 500 requests). By default autocannon tries to apply pressure for full 10 seconds, then suddenly stops. While very useful for testing load tolerance, this would make it difficult to observe performance improvements in single components, as most async operations would be active for 95% of the profiling time.
 
 现在运行这个命令。

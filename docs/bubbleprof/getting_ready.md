@@ -1,6 +1,6 @@
 # 准备
 
-现在我们准备开始分析了。要开始分析，我们需要某种服务器来执行一些异步操作才能开始。为了简单起见，我们可以使用“官方”的 Bubbleprof 示例，该示例围绕从 mongodb 服务器查询 npm 元数据数据来优化。
+现在我们准备开始分析了。要开始分析，我们需要某种服务器来执行一些异步操作才能开始。为了简单起见，我们可以使用“官方”的 Bubbleprof 示例，该示例围绕从 mongodb 服务器查询 npm 元数据的数据来优化。
 > Great, now we are ready to start profiling. To start profiling we find need a server of some sorts that does some async operations to get started. To keep things simple let's use our "official" Bubbleprof example that evolves around optimising a server that queries a mongodb containing npm metadata data.
 
 ```bash
