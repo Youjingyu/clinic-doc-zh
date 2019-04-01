@@ -3,7 +3,7 @@
 尽管火焰图主要是通过可视化堆栈顶部的指标来突出显示瓶颈，但它们也可用于了解应用程序的复杂性。
 > While Flamegraph's highlight bottlenecks primarily through visualizing the top-of-stack metric, they can also be used to understand application complexity.
 
-如果火焰图有很多高涨堆栈，这也可以被认为是分布式瓶颈。如果我们可以找到减少堆栈大小的方法，比如通过删除不必要的层，这也可以提高应用程序性能。
+如果火焰图有很多高涨堆栈，也可以认为是分布式瓶颈。如果我们可以找到减少堆栈大小的方法，比如通过删除不必要的层，这也可以提高应用程序性能。
 > If a flamegraph has a lot of high rising stacks, this can also be thought of as a distributed bottleneck. If we can find ways to reduce the graph size, perhaps by removing unnecessary layers, this can also improve application performance.
 
 一个简单的优化方式就是替换我们使用的库，这些替代库在主逻辑中（the hottest paths）创建和调用更少的函数。

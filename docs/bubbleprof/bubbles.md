@@ -5,7 +5,7 @@
 
 - 一个气泡代表一组异步操作。
 > A bubble represents a group of async operations.
-- 在一组异步操作中花费的时间越多，泡沫越大。
+- 在一组异步操作中花费的时间越多，气泡越大。
 > The more time spent within a group of async operations, the bigger the bubble is.
 - 气泡之间的线越长，说明它们之间存在越大的延迟。
 > The longer the lines between bubbles, the more latency exists between them.
@@ -30,7 +30,7 @@
 在这里，我们看到有两个较小的气泡。如果我们点击第一个，因为它没有子气泡，所以会显示创建它的操作的堆栈跟踪。
 > In here we see that there are two smaller bubbles. If we click on the first one it'll show the stack trace for the operation that created this as it has no sub bubbles.
 
-这里的堆栈跟踪实际上是多个异步操作的组合堆栈。用户区代码会突出显示，以帮助你导航到触发此气泡的代码。在这个例子里，它告诉我们它来自 `1-server-with-no-index.js` 中的第10行。
+这里的堆栈跟踪实际上是多个异步操作的组合堆栈。用户区代码会突出显示，以帮助你定位触发此气泡的代码。在这个例子里，它告诉我们它来自 `1-server-with-no-index.js` 中的第10行。
 > This stack trace is actually a combined stack trace by multiple async operations. The userland code is highlighted to help you navigate to your code that triggered this bubble. In this case it tells us that it was from line 10 in 1-server-with-no-index.js.
 
 如果我们查看源文件，会看到第10行看起来像这样：
@@ -40,5 +40,5 @@
 col.find().sort({modified: -1}).limit(5, function (err, newest) {
 ```
 
-这是有道理的，因为这是一个 mongodb 查询。实际上，如果我们查看页面上的其他黄色气泡，我们会看到它包含对其回调内的下一个查询的引用。这些链接表明这些气泡是串行执行的。
+这是有道理的，因为这是一个 mongodb 查询。实际上，如果我们查看页面上的其他黄色气泡，我们会看到它在其回调内包含了对下一个查询的引用。这些链接表明这些气泡是串行执行的。
 > Which makes sense, as this is a mongodb query. In fact if we look at the other yellow bubble on the page, we'll see that it contains a reference to the next query inside its callback. This link indicates that these bubbles are executed in series.

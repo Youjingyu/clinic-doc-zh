@@ -1,6 +1,6 @@
 # 解决 I/O 问题
 
-在[查看分析结果](./reading_a_profile.html)中，我们看到 CPU Usage 图可以反应分配给其他进程的 Node.js I/O（输入/输出）操作问题，例如慢速数据库查询或 [libuv](https://libuv.org/) 分发的文件写入。我们通过一个例子更详细地看一下。
+在[查看分析结果](./reading_a_profile.html)中，我们看到 CPU Usage 图可以反应分配给其他进程的 Node.js I/O（输入/输出）操作问题，例如缓慢的数据库查询或 [libuv](https://libuv.org/) 分发的文件写入。我们通过一个例子更详细地看一下。
 > In Reading A Profile, we saw that the CPU Usage graph can indicate problems with Node.js I/O (Input/Output) operations delegated to other processes, such as slow database queries or file writes delegated by libuv). Let's look at that in more detail with an example.
 
 # 咨询 Doctor 
@@ -17,7 +17,7 @@ clinic doctor --on-port 'autocannon localhost:$PORT' -- node slow-io
 
 ![](https://clinicjs.org/static/62113e7db45b2c219f16984d858856ab/ace55/06-A.png)
 
-CPU Usage 图被红色突出显示。它显示了几个峰值，但大多数都很低。CPU 活动少于我们对繁忙服务器的期望。建议面板解释说，这很可能是由于异步操作缓慢造成的：我们的应用正在等待外部 I/O 来 resolve promise 或触发回调。
+CPU Usage 图被红色突出显示。它显示了几个峰值，但大多数都很低。CPU 活动少于我们对繁忙服务器的预期。建议面板解释说，这很可能是由于异步操作缓慢造成的：我们的应用正在等待外部 I/O 来 resolve promise 或触发回调。
 > The CPU Usage graph is highlighted in red. It shows several spikes, but is mostly low. There is less CPU activity than we'd expect from a busy server. The Recommendations Panel explains that this is likely caused by slow asynchronous operations: our application is waiting for external I/O to resolve promises or trigger callbacks.
 
 这与我们在[解决事件循环问题](./fixing_an_event_loop_problem.html)时看到的问题非常不同。建议面板建议我们使用另一个 Clinic 工具，`clinic bubbleprof`。
@@ -40,7 +40,7 @@ clinic bubbleprof --on-port 'autocannon localhost:$PORT' -- node slow-io
 `node-clinic-doctor-examples` 使用非常简单的示例服务器，因此现在我们只需要查看主视图，而不是 [Clinic Bubbleprof 文档](../bubbleprof/preface.html)中详细介绍的高级功能。
 > node-clinic-doctor-examples uses very simple example servers, so for now we'll only need to look at the main diagram, not the more advanced features detailed in the Clinic Bubbleprof documentation walkthrough.
 
-主视图显示了一个忙碌的 `http.connection`，调用了一个 `timeout`，然后并行地调用了更多的 `timeout`。第一个 `timeout` 看起来很关键 - 应用程序的其余部分从第一个 `timeout` 中分支出来。
+主视图显示了一个繁忙的 `http.connection`，调用了一个 `timeout`，然后并行地调用了更多的 `timeout`。第一个 `timeout` 看起来很关键 - 应用程序的其余部分从第一个 `timeout` 中分支出来。
 > The main diagram shows a busy http.connection, calling a timeout, which then calls more timeouts in parrallel. That first timeout looks key - the rest of the application branches off from it.
 
 这可能就是我们的瓶颈。
@@ -76,7 +76,7 @@ function awaitData(callback) {
 }
 ```
 
-这就是Node.js正在等待的 - 链式 timeout。
+这就是 Node.js 进程一直在等待的 - 链式 timeout。
 > This is what Node.js is waiting on - chained timeouts.
 
 如果延迟操作是一个外部进程，如慢速数据库查询，在 Node.js 看到的现象也是相同的。我们无法看到外部操作中究竟发生了什么，但我们可以识别 Node.js 正在等待的异步操作。

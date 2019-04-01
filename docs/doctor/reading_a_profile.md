@@ -17,10 +17,10 @@ Clinic Doctor 分析结果主要包含三部分：
 点击此按钮打开它，我们会看到应用的主要问题的一行摘要（如果有的话）。将鼠标悬停在此摘要上，它将突出显示 Doctor 认为与分析该问题最相关的特定图表的标题。
 > Click on this to open it out, and we see a one-line summary of the main problem, if there is one. Hover over this summary and it will underline the title of the specific graph that Doctor thinks is most relevant to understanding the problem.
 
-Doctor 通常不会识别多个问题，因此这里通常只会出现一个问题，或者说没有发现任何问题。这是因为一个性能问题可能会破坏诊断另一个问题所需的数据。例如，如果 Doctor 确定存在事件循环问题，则可能无法获取足够的数据来判断是否存在 I/O 问题。
+Doctor 通常不会同时识别多个问题，因此这里通常只显示一个问题，或者说没有发现任何问题。这是因为一个性能问题可能会破坏诊断另一个问题所需的数据。例如，如果 Doctor 确定存在事件循环问题，则可能无法获取足够的数据来判断是否存在 I/O 问题。
 > Doctor does not generally identify more than one issue, so there will generally be either one problem here, or a note that no problems were found. This is because one performance problem can disrupt the data needed to diagnose another problem. For example, if Doctor is sure there is an event loop problem, it might not be able to take enough readings to judge if there is an I/O problem.
 
-第一次使用的用户主要使用警告栏查看是否存在问题，然后再直接查看建议面板中的说明以更好地理解它。更有经验的用户会看出常见问题，然后研究适当的图表，以寻找特定场景下造成问题的原因。
+第一次使用的用户主要使用警告栏查看是否存在问题，然后直接查看建议面板中的说明以更好地理解它。熟练的用户会看出常见问题，然后研究适当的图表，以寻找特定场景下造成问题的原因。
 > A first-time user will mainly use the Alert Bar to see if there is a detected problem or not, before going straight to the description in the Recommendations Panel to understand it better. A more experienced user will recognise common detected problems and then study the appropriate graphs for clues about how this particular example of the problem is manefesting itself.
 
 在上面的例子中，Doctor 告诉我们它检测到的问题是 “潜在的事件循环问题”，可以在 Event Loop Delay 图中看到：
@@ -63,18 +63,18 @@ CPU 占用图显示了被分析的 Node.js 进程在任何一个时间点所占�
 如果计算机具有多个核心，CPU 使用率可能会超过 100％。CPU 占用图中的 100％ 表示单个核心容量的 100％。
 > CPU Usage can exceed 100% if the machine has multiple cores. 100% on this graph means 100% of the capacity of a single core.
 
-CPU 占用图中的峰值说明 CPU 活动频繁。如果峰值过多并且与事件循环阻塞相关（见下文），则可能会出现问题，但快速（回落）的峰值可能表示服务器能够快速处理高负载。CPU 活动过少可能表示 Node.js 进程在等待 I/O 操作完成，比如慢速数据库查询或文件写入。
+CPU 占用图中的峰值说明 CPU 活动频繁。如果峰值过多并且与事件循环阻塞相关（见下文），则可能会出现问题，但快速（回落）的峰值可能表示服务器能够快速处理高负载。CPU 活动过少可能意味着 Node.js 进程在等待 I/O 操作完成，比如缓慢的数据库查询或文件写入。
 > Spikes in this graph indicate high CPU activity. This can be a problem if it is excessive and correlates with event loop blockage (see below), but rapid spikes can be a sign that the server is healthily processing high load quickly. Too little CPU activity can be a sign that the Node.js process is stuck waiting for an I/O operation to complete, like a slow database query or file write.
 
 在上面的分析结果中，处理器差不多一直出于繁忙状态，看起来很健康。
 > In this profile, the processor is usually fairly busy, which looks healthy.
 
-在本练习的第 6 部分 [修复I/O问题](./fixing_an_IO_problem.html) 中，我们将看到一个不健康的CPU占用图示例。
+在本练习的第 6 部分 [修复 I/O 问题](./fixing_an_IO_problem.html) 中，我们将看到一个不健康的CPU占用图示例。
 > In part 6 of this walkthrough, Fixing an I/O problem, we will see an example of an unhealthy CPU Usage graph.
 
 ### 内存占用（MB）
 
-这个图有三条线，显示了每个时间点的兆字节内存，三种数据都使用相同的比例。
+该图表有三条数据线，表示每个时间点的内存占用量（MB），三种数据都使用相同的比例。
 > This graph has three lines, showing megabytes of memory at each point in time, all on the same scale.
 
 ![](https://clinicjs.org/static/3ae52eee7e17187afb4f6a8f7c6b8493/a1f39/04-I.png)
@@ -89,7 +89,7 @@ CPU 占用图中的峰值说明 CPU 活动频繁。如果峰值过多并且与�
 - HU（Heap Used，使用的堆内存）：这是某个时间点实际使用的堆内存量。它表示在给定时间点上已分配但还未被垃圾回收的所有字符串、对象、闭包等的总大小。这通常是最有趣的一行，而 RSS 和 Total Heap Allocated 提供上下文。
 > HU (Heap Used): This is how much heap memory is actually being used at this point. It represents the total size of all strings, objects, closures etc that have been allocated but not garbage collected at a given point in time. This is usually the most interesting line, with RSS and Total Heap Allocated providing context.
 
-不断增加的 Heap Used 表明可能存在内存泄漏，如果对某些内容的引用仍在作用域内，意味着它不能被垃圾回收，因此导致可用内存最终干涸（耗尽）。一个更常见的问题可能是相反的情况：内存急剧下降，与 Event Loop Delay 图中的高峰数据相关，表明破坏性的垃圾回收事件正在破坏进程并阻止 Node.js 执行代码。
+不断增加的 Heap Used 表明可能存在内存泄漏，如果对某些内容的引用仍在作用域内，意味着它不能被垃圾回收，因此导致可用内存最终干涸（耗尽）。还有一种截然相反的情况，也是一个常见问题：内存急剧下降，与 Event Loop Delay 图中的高峰数据相关，表明破坏性的垃圾回收事件正在破坏进程并阻止 Node.js 执行代码。
 > A constantly increasing Heap Used line suggests a possible memory leak, where references to something are remaining in-scope, meaning it can't ever be garbage collected and therefore causing available memory to eventually run dry. The opposite is perhaps a more common problem: many sharp drops, correlating with high readings in the Event Loop Delay graph, suggests that disruptive garbage collection events are disrupting the process and blocking Node.js from executing code.
 
 在上面的分析结果中，堆内存逐渐上升和下降，总是有大量空闲的堆内存，Resident Set Size 中也有大量非堆内存。看起来比较健康。
@@ -102,17 +102,17 @@ CPU 占用图中的峰值说明 CPU 活动频繁。如果峰值过多并且与�
 
 ### 事件循环延迟（ms）
 
-这个图表示数据节点所在的时间点，Node.js 被同步 JavaScript 代码阻塞。
+该图表示数据节点所在的时间点，Node.js 被同步 JavaScript 代码阻塞。
 > This represents points in time in which Node.js was blocked by executing synchronous JavaScript code.
 
 ![](https://clinicjs.org/static/96a3560909bdff9ba406fa0e400777b1/4d6f1/04-J.png)
 
-重要的是我们要了解此图表的工作原理，因为它还为我们提供了有关其他图表的敏锐度信息：
+了解图表的工作原理对我们来说至关重要，因为它还提供了有关其他图表的精确信息：
 > It is important that we understand how this graph works, because it also gives us information about the acuity of the other graphs:
 
 - Y 轴表示提示框箭头指向的时间点（上图）结束的事件循环延迟的持续时间
 > The Y-axis represents the duration of the event loop delay that ended at the moment in time indicated by the tooltip arrow
-- 该时间点后（上图）总是跟着一条与 X 轴时间一样长的水平线。说明，在这条线的长度范围内，Node.js 都被阻塞了，因此，我们在其它图形上都没有数据。如果我们沿着包含大量事件循环延迟的图形移动光标，提示框会跳动 - 因为 Node.js 执行了一些慢速同步代码，所以其它图表在跳动之间（的时间内）都收集不到任何数据，。
+- 该时间点后（上图）总是跟着一条与 X 轴时间一样长的水平线。说明，在这条线的长度范围内，Node.js 都被阻塞了，因此，我们在其它图形上都没有数据。如果我们沿着包含大量事件循环延迟的图形移动光标，提示框会跳动 - 因为 Node.js 执行了一些较慢的同步代码，所以其它图表在跳动之间（的时间内）都收集不到任何数据，。
 > This is then always followed by a horizontal line representing the same amount of time on the X-axis. For the length of this line, Node.js was blocked, therefore, we don't have any data on any graphs. If we run the cursor along a graph containing substantial event loop delay, the tooltip jumps - this is because no data could be collected between the jumps, for any graphs, because Node.js was stuck executing some slow synchronous code.
 
 > 译者注：原文在这里可能缺一张图，导致下面的描述对应不上任何图
@@ -141,23 +141,23 @@ CPU 占用图中的峰值说明 CPU 活动频繁。如果峰值过多并且与�
 当 Node.js 做异步分发时，例如使用 [libuv](https://libuv.org/) 分发像文件写入或数据库查询操作系统之类的任务，它会存储一个“句柄”。“活动句柄”指已分发但未完成的任务。
 > When Node.js delegates asychronously, such as using libuv to delegate a task like a file write or a database query the operating system, it stores a "handle". An "active handle" is a delegated task that has not reported as being complete.
 
-因此，Active Handles 图表让我们了解 Node.js 进程在任一时间点等待的异步 I/O 任务量。理想情况下，这应该遵循一个有序的模式，在处理和完成请求时上升和下降。它还可以与其他图形组合以提供更多线索 - 例如，与增加的活动句柄相关的服务器 CPU 峰值通常也应与接收的请求量相关。
+因此，Active Handles 图表让我们了解 Node.js 进程在任一时间点等待的异步 I/O 任务量。理想情况下，这应该遵循一个有序的模式，处理请求时上升，完成请求时下降。它还可以与其他图形组合以提供更多线索 - 例如，服务器的 CPU 峰值和新增的活动句柄是相关的，那么它也应当随着传入的请求发生变化。
 > The Active Handles graph therefore gives us an idea of how much asychronous I/O activity the Node.js process is waiting on at any point in time. This should ideally follow an orderly pattern, rising and falling as requests are handled and completed. It can also offer clues when combined with the other graphs - for example, CPU spikes on a server that correlate with increased active handles should usually also correlate with incoming requests.
 
-该图通常为其他图提供上下文。通常很难说 Active Handles 图形应该是什么样子：我们通常不能在不知道应用程序逻辑的情况下通过 Active Handles 图形说 “看起来不健康”。
+活动句柄图一般来说是为其他图表提供上下文依据的。很难说有一个统一的活动句柄图（Active Handles）评判标准：在不知道应用程序逻辑的情况下仅仅通过它就给出“应用不太健康”的结论显然是有失公允的。
 > This graph generally provides context for the other graphs. It's hard to say generically what an Active Handles graph "should" look like: we generally can't point to an Active Handles graph and say "That looks unhealthy" without knowing the application logic.
 
-上面的图中，我们有一个活动句柄很少的时期，很少有其他活动，这可能代表进程刚准备好。然后有一段稳定的活动句柄数，这可能代表正在处理传入的请求。它告诉我们，我们可以忽略那个活动句柄很少的早期阶段，因为它不代表实际的服务器活动。
+从上图中我们可以看到有这样一个阶段：句柄活动很少，也没有其他活动。这有可能是进程刚刚准备好。然后紧接着是一段稳定的活动句柄数，这可以认为是正在处理传入的请求。基于以上信息，我们可以忽略那个活动句柄很少的早期阶段，因为它并不代表实际的服务器活动。
 > Here, we have a period with very few active handles, and very little other activity, which presumably represents the process getting ready. There is then a steady period of [103] active handles, which presumably represents incoming requests being dealt with. It tells us we can probably ignore that early period with very few active handles as not representing typical server activity.
 
 ## 建议面板
 
-单击底部的蓝色栏，它将打开一个面板，告诉我们更多关于 Doctor 关于此应用程序发生了什么的结论。
+单击底部的蓝色栏，将打开一个面板，上面显示了更多关于 Doctor 针对此应用程序发生了什么的结论。
 > Click on the blue bar at the bottom, and it will open a panel telling us more about Doctor's conclusions about what is happening with this application.
 
 ![](https://clinicjs.org/static/b005ce77c877d64ecf2d58d17f891e3a/ace55/04-M.png)
 
-这分为两部分：建议摘要和 "Read more" 按钮下的详细建议文档。
+它由两部分组成：建议摘要和详细建议文档，点击“Read more”按钮可以打开详细建议文档。
 > This is in two parts: a Recommendations Summary, and a Recommendation in Detail article below a 'Read more' button.
 
 #### 建议摘要
@@ -167,12 +167,12 @@ CPU 占用图中的峰值说明 CPU 活动频繁。如果峰值过多并且与�
 
 ![](https://clinicjs.org/static/474986b77bde7a332535c5a4a68cb27d/091f6/04-N.png)
 
-这里有几个UI控件：
+介绍一下这里的几个 UI 控件：
 > There are a few UI controls:
 
 - 'x' 关闭面板
 > The 'x' closes the panel
-- "Browse undetected issue" 允许我们阅读 Doctor 可以识别但没有从这次分析结果中识别出的问题的描述。单击此按钮会展开一些选项卡，以显示 Doctor 没有从这次分析结果识别出的问题的描述。我们可能会发现这很有用，例如：
+- "Browse undetected issue" 允许我们阅读 Doctor 可以识别但没有从这次分析结果中识别出的问题的描述。单击此按钮会展开一些选项卡，以显示 Doctor 没有从这次分析结果识别出的问题的描述。这在某些情况下很有用，例如：
 > "Browse undetected issues" allows us to read descriptions of issues that Doctor can identify but hasn't identified for this profile. Clicking on this expands out some tabs to show descriptions of problems that Doctor has not identified for this profile. For example, We might find this useful, for example:
 1. 在处理 Node.js 性能问题时，避免在修复现有问题时有产生新问题。
 > While learning about Node.js performance, to avoid creating new problems while fixing an existing problem.
@@ -189,14 +189,14 @@ CPU 占用图中的峰值说明 CPU 活动频繁。如果峰值过多并且与�
 
 #### 详细建议
 
-单击 "Read more" 会展开建议面板，以显示有关已诊断出的性能问题的详细文档。这些通常有三个部分（单击左侧的内容列表跳到特定部分）：
+单击 "Read more" 会展开建议面板，以显示有关已诊断出的性能问题的详细文档。这些通常有三个部分（单击左侧的内容列表会跳到特定部分）：
 > Clicking 'Read more' expands the Recommendations Panel to show a detailed article on the performance problem that has been diagnosed. These usually have three sections (clicking on the contents list on the left allows us to skip to a particular section):
 
 - Understanding the analysis：深入描述这个问题。
 > Understanding the analysis describes the problem in depth.
 - Next Steps：详细介绍了一些建议步骤，以缩小问题的确切原因，以便我们进行修复。通常这涉及到使用 Clinic 工具集中的另一个工具，该工具可以识别有问题的代码所在的行。
 > Next Steps details some recommended steps to narrow down on the exact cause of the problem, so we can fix it. Usually this involves using another tool in the Clinic suite which can identify individual lines of problematic code.
-Reference：提供建议进一步阅读的链接，并为提供这些建议的的参考文献。
+Reference：参考文献，提供建议进一步了解问题所需阅读资料的链接。
 > Reference gives links for suggested further reading and credits any sources that were quoted or used in writing this recommendation.
 
 ![](https://clinicjs.org/static/899f2e13b32fa86e73f309d8f410200a/ace55/04-P.png)

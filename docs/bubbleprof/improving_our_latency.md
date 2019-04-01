@@ -9,10 +9,10 @@ clinic bubbleprof --on-port 'autocannon -c 5 -a 500 localhost:$PORT' -- node 2-s
 
 ![](https://clinicjs.org/static/19688d3ad91aec599a91e6fee75a2ba8/71c55/07-A.png)
 
-好多了。我们可以看到 mongo 和 fastify 气泡的时间减少了大约三分之一。查看时间轴，还可以注意到，为这 500 个请求提供服务的总时间从15秒减少到9秒。时间线本身也变得更加密集，这意味着我们在响应请求之间等待的时间更少。换句话说 - 完成相同数量的工作花费的时间更少。
+好多了。我们可以看到 mongo 和 fastify 气泡的时间减少了大约三分之一。查看时间轴，还可以注意到，为这 500 个请求提供服务的总时间从 15 秒减少到 9 秒。时间线本身也变得更加密集，这意味着我们在响应请求之间等待的时间更少。换句话说 - 完成相同数量的工作花费的时间更少。
 > Much better. We can immediately see that the time in mongo and fastify bubbles has dropped by about one third. Looking at the timeline we can also notice that the total time to serve those 500 requests went down from 15 seconds to 9 seconds. Also the timeline itself became denser, meaning we spend less time waiting between serving the requests. In other words - it took less time to do the same amount of work.
 
-怎样才能做进一步的改善？我们先来探讨一下这些气泡。左边的 mongodb 泡泡基于 mongodb npm 模块，我们可能不能做什么来提升第三方依赖。这也同样适用于顶部的 fastify 泡沫。
+那么怎么才能更进一步呢？我们先来探讨一下这些气泡。左边的 mongodb 泡泡基于 mongodb npm 模块，我们可能不能做什么来提升第三方依赖。这也同样适用于顶部的 fastify 泡沫。
 > How can we improve this even further? Let's explore the bubbles a bit. The mongodb bubble on the left is based on the mongodb npm module and there is probably not much we can do to improve this 3rd party dependency. Same goes for the fastify bubble on the top.
 
 让我们深入到底部的查询气泡：

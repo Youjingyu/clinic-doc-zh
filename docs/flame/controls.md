@@ -20,7 +20,7 @@ Clinic 火焰图的控制面板主要包括三个部分：
 单击，单击选择函数块，当你不再悬停在任何内容上时，信息面板仍旧显示该函数块的信息。
 > Clicking will select the block, so that the info panel reverts to that block when you are no longer hovering over anything.
 
-如果你发现一个看起来很有趣的块，点击它会很有用，这样你就可以在不丢失它的情况下徘徊探索它周围的函数块。
+如果你发现一个看起来很有趣的块，点击它会很有用，这样你就可以在不丢失它的情况下查看它周围的函数块。
 > If you find an interesting-looking block, it can be useful to click on it so you can hover around exploring its neighbours without losing it.
 
 <video src="https://clinicjs.org/assets/videos/flame-docs-A.mp4" playsinline loop autoplay muted width="100%"></video>
@@ -44,7 +44,7 @@ After single-clicking on a block, or hovering over it for a moment, a tooltip ap
 
 ### 展开
 
-如果双击某个函数块或者点击了提示框中的 "Expand" 按钮，该函数块会展开填充满整个火焰图。展开的函数块下方的函数块也会填充满整个屏幕，而其上方的函数块所占的比率会增加。
+如果双击某个函数块或者点击了提示框中的 "Expand" 按钮，该函数块会展开填充满整个火焰图。展开的函数块下方的函数块也会填充满整个屏幕，而其上方的函数块所占的比率会增加。扩展的函数块实际上创建了一个新的火焰图，它表示了主火焰图的一个特定区域。
 > When a block is double-clicked, or its tooltip "Expand" button is used, it will expand to fill the full width of the flamegraph. Blocks below will also expand and fill the full width, while blocks above the clicked block will increase in ratio to the block they sit on. Expanding a block essentially creates a new flamegraph which represents a particular partition of the main flamegraph.
 
 已展开的函数块具有阴影背景。此“阴影”下方的每个函数块都可能扩展到比整个屏幕更宽的宽度（在 CPU 上的执行时间更长）。
@@ -131,7 +131,7 @@ After single-clicking on a block, or hovering over it for a moment, a tooltip ap
 
 ### 菜单选项
 
-单击信息面板右侧的 "Options" 按钮 可打开包含更多高级选项的菜单。
+单击信息面板右侧的 "Options" 按钮可打开包含更多高级选项的菜单。
 > Clicking "Options" on the right side of the Info Panel opens a menu with more advanced options.
 
 #### 代码区域的可见性
@@ -152,7 +152,7 @@ After single-clicking on a block, or hovering over it for a moment, a tooltip ap
 
 - Init：允许显示初始化函数的火焰图，默认隐藏。[更多信息](./advanced_controls.html#初始化)
 > Init: Allows initialization functions to be shown that Flame hides by default. More info
-- Merge：允许为V8优化的功能显示不同的堆栈。[更多信息](./advanced_controls.html#合并与未合并)
+- Merge：允许为 V8 优化的功能显示不同的堆栈。[更多信息](./advanced_controls.html#合并与未合并)
 > Merge: Allows different stacks to be shown for functions that V8 has optimised. More info.
 
 #### 偏好

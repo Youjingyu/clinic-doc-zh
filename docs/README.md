@@ -90,5 +90,5 @@ clinic doctor --on-port 'autocannon localhost:$PORT' -- node ./slow-io
 
 ### 接下来
 
-通常，在使用 Clinic 时，我们首先使用 Clinic Doctor 来确定应用程序中存在哪些性能问题。然后，Doctor 会向我们提供下一步应该用什么工具以及具体分析的建议。
+通常，在使用 Clinic 时，我们首先使用 Clinic Doctor 来确定应用程序中存在哪些性能问题。然后，Doctor 会告诉我们接下来应该用什么工具并提供具体分析的建议。
 > Normally, when using Clinic, we begin by using Clinic Doctor to identify what performance problems exist in an application. Doctor will then give us recommendations on what tools and enquires to make next.

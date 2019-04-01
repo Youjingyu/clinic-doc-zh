@@ -18,5 +18,5 @@ clinic bubbleprof --on-port 'autocannon -c 5 -a 500 localhost:$PORT' -- node 3-s
 就目前而言，这种气泡布局接近最佳。我们几乎没有用户空间代码占用任何时间，这意味着大部分时间花在第三方模块上 - 我们假设我们对它们的使用也是最优的。
 > As it stands, this bubble layout is close to optimal. We have almost no userland code taking up any time anymore, which means most time is spent in 3rd party modules - which we assume to be pretty optimal for their usecase as well.
 
-现在做进一步改善的主要方法是摆脱 mongodb 气泡或 fastify 气泡。摆脱 fastify 会很难，因为我们的应用程序是一个 http 服务器，而 fastify 已经非常擅长做 http 相关的东西了。为了摆脱 mongodb 气泡，我们将不得不用数据库做更少的事情。
+那么更进一步的改进就是摆脱 mongodb 气泡或 fastify 气泡了。摆脱 fastify 会很难，因为我们的应用程序是一个 http 服务器，而 fastify 已经非常擅长做 http 相关的东西了。为了摆脱 mongodb 气泡，我们将不得不用数据库做更少的事情。
 > The main way to improve this now, would be to get rid of the mongodb bubble or fastify bubble entirely. Getting rid of fastify would be hard as our application is a http server and fastify is already really good at doing http stuff. To get rid of the mongodb bubble we would have to do fewer things with the database.

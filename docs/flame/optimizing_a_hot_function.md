@@ -60,7 +60,7 @@ function initPayload(idSize = 20) {
 变量 `n` 赋值为 `idSize`，但接着又乘以自身与 `idSize` 的积，结果基本上是 `n³`。然后，在每次 `while` 循环中，`n` 变量减少 1。`while` 循环体将 `timestamp` 时间戳和 `n` 相加，然后调用 `toString（36）`（ `radix` 常量为36），把数字转换为包含数字和字母的字符串（36 进制），然后把这个 36 进制字符串转为大写并添加到 `chars` 字符。最后，根据 `chars` 字符串获取长度相对于 `idSize` 的切片来生成 `id`。
 > The variable n is set to the idSize, but then later multiplied by itself times the idSize, which is essentially n³. The n variable is then decreased by one per each iteration of a while loop. The body of the while loop is adding the date timestamp and n together and then calling toString(36) (the radix constant is 36) which will convert the number to an alphanumeric string (base36). This base36 string is then upper cased and added to the chars string. Finally the a slice with a length corresponding to idSize is taken from the chars string to form the id.
 
-多么奇怪且过度设计的创建 ID 的方式啊。当然没有人会真的写这样的代码？（旁白：“他们会。”）
+多么奇怪且过度设计的 ID 创建方式啊。当然没有人会真的这样写代码的对吧？（旁白：“他们会。”）
 > What an odd and over-engineered way to create an ID. Surely no one would really write code like that? (Narrator: "They do.")
 
 让我们改进算法，但同时保证 id 的基本特性：
@@ -118,7 +118,7 @@ clinic flame --on-port 'autocannon localhost:$PORT' -- node 2-server-with-optimi
 可以看到 `payload` 函数已经看不见了。因为它内联到了它的的父函数中，也就是内联到了标记为 `app.get` 的匿名 lambda 函数中。在 [高级控制页面](./advanced_controls.html#合并与未合并) 有关于内联和合并的更多信息。
 > Notice the payload function is nowhere to be seen. This is because the function was inlined into its parent: the anonymous lamda function labelled as app.get. There is more information on inlining and merging on the Advanced Controls page.
 
-通过 `autocannon`，可以证明我们的优化使我们的服务器速度提高了50倍（220 req/s vs 11640 req/s）。
+通过 `autocannon`，可以证明我们的优化使我们的服务器速度提高了 50 倍（220 req/s vs 11640 req/s）。
 > Using autocannon we can show that our optimization has lead to our server being over 50 times faster (220 req/s vs 11640 req/s).
 
 ![](https://clinicjs.org/static/a140f7ccf8fcc653b51daefab7c9b17e/34af2/06-B.png)

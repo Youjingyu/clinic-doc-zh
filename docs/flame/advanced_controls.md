@@ -56,7 +56,7 @@ V8 可能对一些频繁运行的代码做自动优化，从而创建这些函�
 > Unoptimized blocks in white
 - 灰色的优化后的函数块
 > Optimized blocks in grey
-- 与优化无关的块，因为它们没有用蓝色表示（译者注：非 JavaScript 代码 ）JavaScript
+- 与优化无关的块，因为它们没有用蓝色表示JavaScript（译者注：非 JavaScript 代码 ）
 > Blocks where optimization is not relevant because they don't represent JavaScript in blue
 
 "Merge" 选项未勾选时，可以通过在搜索框中输入 "inlinable" 来搜索内联函数。
@@ -83,7 +83,7 @@ V8 可能对一些频繁运行的代码做自动优化，从而创建这些函�
 编译到 V8 中的原生 JavaScript 函数。
 > These are native JavaScript functions that are compiled into V8.
 
-包括任何原生原型方法（例如 `Array.prototype.join` ），以及任何未公开但由V8内部使用的函数（例如 `InnerArrayJoin`）。
+包括任何原生原型方法（例如 `Array.prototype.join` ），以及任何未公开但由 V8 内部使用的函数（例如 `InnerArrayJoin`）。
 > This would include any native prototype methods (Array.prototype.join for instance), and any functions that aren't publicly exposed but are used internally by V8 (InnerArrayJoin for instance).
 
 此外，动态函数（使用 `eval` 运行的代码或使用 `Function` 创建的代码）也会显示为原生块，文件路径显示为 `[eval]`。
@@ -102,7 +102,7 @@ V8 可能对一些频繁运行的代码做自动优化，从而创建这些函�
 由 V8 底层调用的 C++ 函数块，但不包括可在 Node、Libuv 或第三方模块中调用的 C++ 函数。
 > These are C++ frames that are called by the V8 layer, not including C++ frames that may be called in Node, Libuv or third party modules.
 
-这些函数块的标签可以包括 `[CPP]` 和 `[SHARED_LIB]`。
+这些函数块的标签可包括 `[CPP]` 和 `[SHARED_LIB]`。
 > These frames can include the tags `[CPP]` and `[SHARED_LIB]`.
 
 #### RegExp

@@ -79,10 +79,10 @@ clinic flame --on-port 'autocannon localhost:$PORT' -- node --no-turbo-inlining 
 return `{"date": ${date}, "id": "${id}"}`
 ```
 
-注意注意的是，在许多情况下，这种优化可能是不合适的，例如，由于安全问题，必须对输入转义的情况。一种替代手动序列化的方法使用基于 schema 的序列化方案 [fast-json-stringify](http://npm.im/fast-json-stringify)，这种方式仍然比使用 `JSON.stringify` 快。Fastify Web 框架默认支持基于 schema 的序列化，请参阅 [Fastify 的序列化文档](https://github.com/fastify/fastify/blob/master/docs/Validation-and-Serialization.md#serialization)。
+值得注意的是，在许多情况下，这种优化可能是不合适的，例如，由于安全问题，必须对输入转义的情况。一种替代手动序列化的方法使用基于 schema 的序列化方案 [fast-json-stringify](http://npm.im/fast-json-stringify)，这种方式仍然比使用 `JSON.stringify` 快。Fastify Web 框架默认支持基于 schema 的序列化，请参阅 [Fastify 的序列化文档](https://github.com/fastify/fastify/blob/master/docs/Validation-and-Serialization.md#serialization)。
 > It should be noted here that this technique may be inappropriate in many cases, for instance where escaping inputs is crucial to security. An alternative to manual serialization which is still faster than using JSON.stringify is schema-based serialization using fast-json-stringify. The Fastify web framework also supports schema-based serialization by default, see Fastify's Serialization Documentation.
 
-我们再次运行  Clinic Flame 为 `4-server-with-manual-serialization.js` 生成一个火焰图：
+我们再次运行 Clinic Flame 为 `4-server-with-manual-serialization.js` 生成一个火焰图：
 > Let's run Clinic Flame to create a flamegraph for 4-server-with-manual-serialization.js:
 
 ```bash
@@ -103,7 +103,7 @@ clinic flame --on-port 'autocannon localhost:$PORT' -- node 4-server-with-manual
 
 ![](https://clinicjs.org/static/c12e04a80202e977607f373c110ff2d6/366e0/08-F.png)
 
-可以看到，我们已经实现了大约10％的改进。
+可以看到，我们已经实现了大约 10％ 的改进。
 > We've achieved roughly another 10% improvement.
 
 现在，对应用程序的进一步优化变得越来越具有挑战性，因为 Node 核心代码中的函数已成为主要瓶颈。我们还可以在这里、那里挤出几个百分点的性能提升，特别是如果我们愿意改变针对 `id` 字段的约束。
