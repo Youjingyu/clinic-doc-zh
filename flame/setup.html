@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>安装</title>
+    <meta name="description" content="Node Clinic 中文文档">
+    <link rel="shortcut icon" href="/clinic-doc-zh/icon.png">
+  <style>
+      p + blockquote, ol + blockquote,  ul + blockquote {
+        display: none;
+      }
+    </style>
+  <script>
+      document.addEventListener('click', function (e) {
+        var target = e.target
+        var nextSibling
+        if (target.tagName === 'P') {
+          nextSibling = target.nextElementSibling
+        } else if (target.tagName === 'LI') {
+          nextSibling = target.parentNode.nextElementSibling
+        }
+        if (nextSibling && nextSibling.tagName === 'BLOCKQUOTE') {
+          var hide = 'display:none'
+          var show = 'display:block'
+          var style = nextSibling.getAttribute('style')
+          nextSibling.setAttribute('style', style === show ? hide : show)
+        }
+      })
+    </script>
+  <script>
+      var logoUrlChanger = setInterval(function () {
+        // Anchor above the logo image
+        var homeEls = document.getElementsByClassName('home-link')
+        if (homeEls.length > 0) {
+          var homeEl = homeEls[0]
+          homeEl.setAttribute('href', 'https://clinicjs.org/documentation')
+          homeEl.setAttribute('onclick', "document.location='https://clinicjs.org/documentation';return false;")
+          clearInterval(logoUrlChanger)
+        }
+
+        // Actual logo image
+        var logoEls = document.getElementsByClassName('logo')
+        if (logoEls.length > 0) {
+          var logoEl = logoEls[0]
+          logoEl.setAttribute('onclick', "document.location='https://clinicjs.org/documentation';return false;")
+          clearInterval(logoUrlChanger)
+        }
+      }, 1000)
+    </script>
+    
+    <link rel="preload" href="/clinic-doc-zh/assets/css/0.styles.feea2165.css" as="style"><link rel="preload" href="/clinic-doc-zh/assets/js/app.75a44ac4.js" as="script"><link rel="preload" href="/clinic-doc-zh/assets/js/30.1382df70.js" as="script"><link rel="prefetch" href="/clinic-doc-zh/assets/js/10.b505e73e.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/11.032e2525.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/12.19c3aee9.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/13.9082d8b6.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/14.c6f29cca.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/15.b41e31f0.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/16.841d9223.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/17.55afc7db.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/18.f63d344f.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/19.11585fc4.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/2.e5f43561.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/20.47b55fca.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/21.9cdae012.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/22.39d2389b.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/23.2fb2fbba.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/24.1bf5b85a.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/25.4cb5b678.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/26.7f5c2c15.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/27.23216170.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/28.1707d2c7.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/29.7c788ded.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/3.a472746a.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/31.8f6973e1.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/4.7a3df476.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/5.d84f4001.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/6.4af6163d.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/7.91d6fdd6.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/8.c444e8be.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/9.fcb1f222.js">
+    <link rel="stylesheet" href="/clinic-doc-zh/assets/css/0.styles.feea2165.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/clinic-doc-zh/" class="home-link router-link-active"><img src="/clinic-doc-zh/logo.png" alt="" class="logo"> <!----></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/Youjingyu/clinic-doc-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"> <a href="https://github.com/Youjingyu/clinic-doc-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/clinic-doc-zh/" class="sidebar-link">开始</a></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Doctor</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Flame</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/clinic-doc-zh/flame/preface.html" class="sidebar-link">前言</a></li><li><a href="/clinic-doc-zh/flame/setup.html" class="active sidebar-link">安装</a></li><li><a href="/clinic-doc-zh/flame/getting_ready.html" class="sidebar-link">准备</a></li><li><a href="/clinic-doc-zh/flame/first_analysis.html" class="sidebar-link">首次分析</a></li><li><a href="/clinic-doc-zh/flame/flamegraphs.html" class="sidebar-link">火焰图</a></li><li><a href="/clinic-doc-zh/flame/controls.html" class="sidebar-link">控制面板</a></li><li><a href="/clinic-doc-zh/flame/optimizing_a_hot_function.html" class="sidebar-link">优化热函数</a></li><li><a href="/clinic-doc-zh/flame/reducing_the_graph_size.html" class="sidebar-link">减小火焰图大小</a></li><li><a href="/clinic-doc-zh/flame/advanced_analysis.html" class="sidebar-link">高级分析</a></li><li><a href="/clinic-doc-zh/flame/advanced_controls.html" class="sidebar-link">高级控件</a></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Bubbleprof</span> <span class="arrow right"></span></p> <!----></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="安装"><a href="#安装" aria-hidden="true" class="header-anchor">#</a> 安装</h1> <p>Flame 是 Node Clinic 工具的一部分。要安装 Flame，只需要安装 Node Clinic 就行了：</p> <blockquote><p>Flame is part of the Node Clinic suit of tools. To install Flame, simply install Node Clinic like so:</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">npm</span> <span class="token function">install</span> -g clinic
+</code></pre></div><p>安装完成后，我们可以通过运行 <code>clinic flame command --help</code> 命令来检查 Flame 是否已经安装：</p> <blockquote><p>After installing, we can check if Flame has been installed with running the clinic flame command with the --help flag.</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>clinic flame --help
+</code></pre></div><p>执行上面的命令应该输出如下内容：</p> <blockquote><p>It should print something similar to the following:</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>Clinic Flame - v3.6.0 <span class="token punctuation">(</span>0x v4.7.2<span class="token punctuation">)</span>
+
+clinic flame helps you <span class="token function">find</span> synchronous bottlenecks
+by creating a flamegraph visualization that assists <span class="token keyword">in</span> identifying
+<span class="token keyword">function</span> calls that may be blocking the event loop.
+
+For <span class="token function">more</span> information see the 0x readme, https://github.com/davidmarkclements/0x
+
+To run clinic flame
+
+  clinic flame -- node server.js
+
+If profiling on a server, it can be useful to only <span class="token keyword">do</span> data collection:
+
+  clinic flame --collect-only -- node server.js
+
+You can <span class="token keyword">then</span> transfer the data and visualize it locally:
+
+  clinic flame --visualize-only PID.clinic.flame
+
+Flags
+-h <span class="token operator">|</span> --help                Display Help
+-v <span class="token operator">|</span> --version             Display Version
+--collect-only             Do not process data on terminiation
+--visualize-only datapath  Build or rebuild visualization from data
+</code></pre></div></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/Youjingyu/clinic-doc-zh/edit/master/docs/flame/setup.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/clinic-doc-zh/flame/preface.html" class="prev">
+          前言
+        </a></span> <span class="next"><a href="/clinic-doc-zh/flame/getting_ready.html">
+          准备
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/clinic-doc-zh/assets/js/app.75a44ac4.js" defer></script><script src="/clinic-doc-zh/assets/js/30.1382df70.js" defer></script>
+  </body>
+</html>

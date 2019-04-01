@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>VuePress</title>
+    <meta name="description" content="Node Clinic 中文文档">
+    <link rel="shortcut icon" href="/clinic-doc-zh/icon.png">
+  <style>
+      p + blockquote, ol + blockquote,  ul + blockquote {
+        display: none;
+      }
+    </style>
+  <script>
+      document.addEventListener('click', function (e) {
+        var target = e.target
+        var nextSibling
+        if (target.tagName === 'P') {
+          nextSibling = target.nextElementSibling
+        } else if (target.tagName === 'LI') {
+          nextSibling = target.parentNode.nextElementSibling
+        }
+        if (nextSibling && nextSibling.tagName === 'BLOCKQUOTE') {
+          var hide = 'display:none'
+          var show = 'display:block'
+          var style = nextSibling.getAttribute('style')
+          nextSibling.setAttribute('style', style === show ? hide : show)
+        }
+      })
+    </script>
+  <script>
+      var logoUrlChanger = setInterval(function () {
+        // Anchor above the logo image
+        var homeEls = document.getElementsByClassName('home-link')
+        if (homeEls.length > 0) {
+          var homeEl = homeEls[0]
+          homeEl.setAttribute('href', 'https://clinicjs.org/documentation')
+          homeEl.setAttribute('onclick', "document.location='https://clinicjs.org/documentation';return false;")
+          clearInterval(logoUrlChanger)
+        }
+
+        // Actual logo image
+        var logoEls = document.getElementsByClassName('logo')
+        if (logoEls.length > 0) {
+          var logoEl = logoEls[0]
+          logoEl.setAttribute('onclick', "document.location='https://clinicjs.org/documentation';return false;")
+          clearInterval(logoUrlChanger)
+        }
+      }, 1000)
+    </script>
+    
+    <link rel="preload" href="/clinic-doc-zh/assets/css/0.styles.feea2165.css" as="style"><link rel="preload" href="/clinic-doc-zh/assets/js/app.75a44ac4.js" as="script"><link rel="prefetch" href="/clinic-doc-zh/assets/js/10.b505e73e.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/11.032e2525.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/12.19c3aee9.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/13.9082d8b6.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/14.c6f29cca.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/15.b41e31f0.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/16.841d9223.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/17.55afc7db.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/18.f63d344f.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/19.11585fc4.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/2.e5f43561.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/20.47b55fca.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/21.9cdae012.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/22.39d2389b.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/23.2fb2fbba.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/24.1bf5b85a.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/25.4cb5b678.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/26.7f5c2c15.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/27.23216170.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/28.1707d2c7.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/29.7c788ded.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/3.a472746a.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/30.1382df70.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/31.8f6973e1.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/4.7a3df476.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/5.d84f4001.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/6.4af6163d.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/7.91d6fdd6.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/8.c444e8be.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/9.fcb1f222.js">
+    <link rel="stylesheet" href="/clinic-doc-zh/assets/css/0.styles.feea2165.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><div class="content"><h1>404</h1> <blockquote>There's nothing here.</blockquote> <a href="/clinic-doc-zh/" class="router-link-active">Take me home.</a></div></div></div>
+    <script src="/clinic-doc-zh/assets/js/app.75a44ac4.js" defer></script>
+  </body>
+</html>

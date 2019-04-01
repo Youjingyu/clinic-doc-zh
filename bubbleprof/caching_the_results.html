@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>缓存结果</title>
+    <meta name="description" content="Node Clinic 中文文档">
+    <link rel="shortcut icon" href="/clinic-doc-zh/icon.png">
+  <style>
+      p + blockquote, ol + blockquote,  ul + blockquote {
+        display: none;
+      }
+    </style>
+  <script>
+      document.addEventListener('click', function (e) {
+        var target = e.target
+        var nextSibling
+        if (target.tagName === 'P') {
+          nextSibling = target.nextElementSibling
+        } else if (target.tagName === 'LI') {
+          nextSibling = target.parentNode.nextElementSibling
+        }
+        if (nextSibling && nextSibling.tagName === 'BLOCKQUOTE') {
+          var hide = 'display:none'
+          var show = 'display:block'
+          var style = nextSibling.getAttribute('style')
+          nextSibling.setAttribute('style', style === show ? hide : show)
+        }
+      })
+    </script>
+  <script>
+      var logoUrlChanger = setInterval(function () {
+        // Anchor above the logo image
+        var homeEls = document.getElementsByClassName('home-link')
+        if (homeEls.length > 0) {
+          var homeEl = homeEls[0]
+          homeEl.setAttribute('href', 'https://clinicjs.org/documentation')
+          homeEl.setAttribute('onclick', "document.location='https://clinicjs.org/documentation';return false;")
+          clearInterval(logoUrlChanger)
+        }
+
+        // Actual logo image
+        var logoEls = document.getElementsByClassName('logo')
+        if (logoEls.length > 0) {
+          var logoEl = logoEls[0]
+          logoEl.setAttribute('onclick', "document.location='https://clinicjs.org/documentation';return false;")
+          clearInterval(logoUrlChanger)
+        }
+      }, 1000)
+    </script>
+    
+    <link rel="preload" href="/clinic-doc-zh/assets/css/0.styles.feea2165.css" as="style"><link rel="preload" href="/clinic-doc-zh/assets/js/app.75a44ac4.js" as="script"><link rel="preload" href="/clinic-doc-zh/assets/js/5.d84f4001.js" as="script"><link rel="prefetch" href="/clinic-doc-zh/assets/js/10.b505e73e.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/11.032e2525.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/12.19c3aee9.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/13.9082d8b6.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/14.c6f29cca.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/15.b41e31f0.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/16.841d9223.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/17.55afc7db.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/18.f63d344f.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/19.11585fc4.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/2.e5f43561.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/20.47b55fca.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/21.9cdae012.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/22.39d2389b.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/23.2fb2fbba.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/24.1bf5b85a.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/25.4cb5b678.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/26.7f5c2c15.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/27.23216170.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/28.1707d2c7.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/29.7c788ded.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/3.a472746a.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/30.1382df70.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/31.8f6973e1.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/4.7a3df476.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/6.4af6163d.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/7.91d6fdd6.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/8.c444e8be.js"><link rel="prefetch" href="/clinic-doc-zh/assets/js/9.fcb1f222.js">
+    <link rel="stylesheet" href="/clinic-doc-zh/assets/css/0.styles.feea2165.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/clinic-doc-zh/" class="home-link router-link-active"><img src="/clinic-doc-zh/logo.png" alt="" class="logo"> <!----></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/Youjingyu/clinic-doc-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"> <a href="https://github.com/Youjingyu/clinic-doc-zh" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/clinic-doc-zh/" class="sidebar-link">开始</a></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Doctor</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Flame</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Bubbleprof</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/clinic-doc-zh/bubbleprof/preface.html" class="sidebar-link">前言</a></li><li><a href="/clinic-doc-zh/bubbleprof/setup.html" class="sidebar-link">安装</a></li><li><a href="/clinic-doc-zh/bubbleprof/getting_ready.html" class="sidebar-link">准备</a></li><li><a href="/clinic-doc-zh/bubbleprof/first_analysis.html" class="sidebar-link">首次分析</a></li><li><a href="/clinic-doc-zh/bubbleprof/bubbles.html" class="sidebar-link">Bubbles（气泡）</a></li><li><a href="/clinic-doc-zh/bubbleprof/the_sidebar.html" class="sidebar-link">侧边栏</a></li><li><a href="/clinic-doc-zh/bubbleprof/finding_the_first_bottleneck.html" class="sidebar-link">寻找第一个瓶颈</a></li><li><a href="/clinic-doc-zh/bubbleprof/improving_our_latency.html" class="sidebar-link">改善延迟</a></li><li><a href="/clinic-doc-zh/bubbleprof/parallel_queries.html" class="sidebar-link">并行查询</a></li><li><a href="/clinic-doc-zh/bubbleprof/caching_the_results.html" class="active sidebar-link">缓存结果</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="缓存结果"><a href="#缓存结果" aria-hidden="true" class="header-anchor">#</a> 缓存结果</h1> <p>一种方法是使用缓存。我们的结果很少改变，因此在 LRU 缓存中缓存查询结果是减少数据库查询总时间的好方法。</p> <blockquote><p>A way to do that would be to add caching. Our result seldomly changes so caching it in an LRU cache would be a great way to reduce the amount of database queries done in total.</p></blockquote> <p>在 <code>4-server-with-caching.js</code> 实现了这个优化。我们运行它：</p> <blockquote><p>This is implemented in 4-server-with-caching.js. Let's run it:</p></blockquote> <div class="language-bash extra-class"><pre class="language-bash"><code>clinic bubbleprof --on-port <span class="token string">'autocannon -c 5 -a 500 localhost:<span class="token variable">$PORT</span>'</span> -- node 4-server-with-caching.js
+</code></pre></div><p><img src="https://clinicjs.org/static/3569454ee519f02bbe0cdfc78fd29e67/71c55/09-A.png" alt></p> <p>mongodb 泡沫缩小了 7 倍。与第一个例子相比，大约是 20 倍。此外，从时间轴中的黄线可以看到，在初始查询响应到达后，mongodb 操作已被缓存操作替换。现在我们的 mongodb 泡泡很小 - 到目前为止，大部分时间都用于提供 http 请求。</p> <blockquote><p>Our mongodb bubbles have shrunk 7x. And about 20x in comparison with the first example. Also, following the yellow line in the timeline tells us that mongodb activity has been replaced by caching activity after initial query response arrived. Now our mongodb bubbles are tiny - and by far the most time is spent just serving http requests.</p></blockquote> <p>希望这片文档有助于你更好地了解 Bubbleprof 工具以及如何使用它来找到你的瓶颈。</p> <blockquote><p>Hope this helps you understand the Bubbleprof tool better and how to use it to find your bottlenecks.</p></blockquote></div> <div class="page-edit"><div class="edit-link"><a href="https://github.com/Youjingyu/clinic-doc-zh/edit/master/docs/bubbleprof/caching_the_results.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/clinic-doc-zh/bubbleprof/parallel_queries.html" class="prev">
+          并行查询
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/clinic-doc-zh/assets/js/app.75a44ac4.js" defer></script><script src="/clinic-doc-zh/assets/js/5.d84f4001.js" defer></script>
+  </body>
+</html>
